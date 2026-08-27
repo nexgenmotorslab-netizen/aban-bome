@@ -1,83 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABAN BOME 3-in-1 | Government at Your Doorstep</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial}
-body{background:#F5F7F6;color:#1A1A1A}
-.sidebar{position:fixed;left:0;top:0;width:260px;height:100vh;background:#0F2E1F;color:white;padding:20px;z-index:10}
-.sidebar h2{color:#FACC15;font-size:22px}
-.nav a{display:block;padding:12px 14px;margin:6px 0;border-radius:10px;color:#CBD5E1;text-decoration:none;cursor:pointer}
-.nav a.active,.nav a:hover{background:#16412C;color:white}
-.main{margin-left:260px;padding:24px}
-.top-banner{background:linear-gradient(135deg,#0F2E1F,#16412C);color:white;border-radius:18px;padding:24px;display:flex;justify-content:space-between;align-items:center}
-.btn{padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-.btn-green{background:#16A34A;color:white}
-.btn-dark{background:#0F2E1F;color:white}
-.card{background:white;border-radius:16px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin:16px 0}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
-.type-card{border:2px solid #E5E7EB;border-radius:14px;padding:16px;text-align:center;cursor:pointer}
-.type-card.selected{border-color:#16A34A;background:#F0FDF4}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI}
+body{background:#F5F7F6}
+.sidebar{position:fixed;left:0;top:0;width:260px;height:100vh;background:#0F2E1F;color:#fff;padding:20px}
+.sidebar h2{color:#FACC15;line-height:1.1}
+.nav a{display:block;padding:12px;border-radius:10px;color:#CBD5E1;margin:6px 0;cursor:pointer;text-decoration:none}
+.nav a.active{background:#16412C;color:#fff}
+.main{margin-left:260px;padding:22px}
+.banner{background:linear-gradient(135deg,#0F2E1F,#16412C);color:#fff;border-radius:18px;padding:22px;display:flex;justify-content:space-between}
+.card{background:#fff;border-radius:16px;padding:20px;margin:16px 0;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.type{border:2px solid #E5E7EB;border-radius:14px;padding:16px;text-align:center;cursor:pointer}
+.type.active{border-color:#16A34A;background:#F0FDF4}
 .input{width:100%;padding:12px;border:1px solid #D1D5DB;border-radius:10px;margin:8px 0}
-.success-box{background:#F0FDF4;border:2px solid #16A34A;padding:18px;border-radius:12px;text-align:center;margin-top:12px}
-@media(max-width:900px){.sidebar{width:100%;height:auto;position:relative}.main{margin-left:0}.grid3{grid-template-columns:1fr}}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;font-weight:800;cursor:pointer}
+.btn-green{background:#16A34A;color:#fff}
+.btn-dark{background:#0F2E1F;color:#fff}
+.ok{background:#F0FDF4;border:2px solid #16A34A;border-radius:12px;padding:16px;text-align:center;margin-top:12px}
+@media(max-width:900px){.sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}.grid3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="sidebar">
 <h2>ABAN BOME<br>3-in-1</h2>
-<p>Government at Your Doorstep<br>Sulley Fouard | Adonten SHS x Openlabs</p>
+<p style="color:#A7F3D0;font-size:12px;margin:8px 0 18px">Gov at Your Doorstep<br>Sulley Fouard | Adonten SHS x Openlabs</p>
 <div class="nav">
-<a class="active" onclick="showSection('membership')">🏠 1. Become Member</a>
-<a onclick="showSection('sweep')">♻️ 2. Kakra Sweep + H4G</a>
-<a onclick="showSection('status')">📊 3. View Status & Rewards</a>
+<a id="n1" class="active" onclick="show('membership')">🏠 Become Member</a>
+<a id="n2" onclick="show('sweep')">♻️ Kakra Sweep + H4G</a>
+<a id="n3" onclick="show('status')">📊 View Status & Rewards</a>
 </div>
+<p style="margin-top:30px;font-size:10px;color:#94A3B8">aban-bome-3in1.vercel.app<br>Okuapeman Hackathon 1st Oct</p>
 </div>
+
 <div class="main">
-<div class="top-banner">
-<div><h1>Welcome to ABAN BOME 3-in-1</h1><p style="color:#A7F3D0">One Platform, One Ghana</p></div>
-<div style="text-align:right"><div style="color:#FACC15">LIVE</div><div style="font-size:22px;font-weight:800">1,247 Members</div></div>
+<div class="banner">
+<div><h2>Welcome to ABAN BOME 3-in-1</h2><p style="color:#A7F3D0">One Platform, One Ghana</p></div>
+<div style="text-align:right"><small style="color:#FACC15">LIVE SYSTEM</small><div style="font-size:20px;font-weight:800" id="totalMembers">1,247 Members</div></div>
 </div>
 
-<div id="sec-membership" class="card">
+<!-- 1. BECOME MEMBER -->
+<div id="s-membership" class="card">
 <h3>1. Choose Membership Type & Register</h3>
-<div class="grid3" style="margin-top:14px">
-<div class="type-card selected" id="card-student" onclick="selectType('Student')"><div style="font-size:28px">🎓</div><b>Student</b><p style="font-size:12px">Adonten SHS</p><button class="btn btn-green" style="margin-top:10px;width:100%">Select Student</button></div>
-<div class="type-card" id="card-business" onclick="selectType('Business')"><div style="font-size:28px">🏪</div><b>Business</b><p style="font-size:12px">Shop Owner</p><button class="btn btn-dark" style="margin-top:10px;width:100%">Select Business</button></div>
-<div class="type-card" id="card-community" onclick="selectType('Community')"><div style="font-size:28px">👥</div><b>Community</b><p style="font-size:12px">Resident</p><button class="btn" style="margin-top:10px;width:100%;background:#FACC15">Select Community</button></div>
+<div class="grid3" style="margin-top:12px">
+<div class="type active" id="t-student" onclick="pick('Student')"><div style="font-size:28px">🎓</div><b>Student</b><br><small>Adonten SHS & Youth</small><br><button class="btn btn-green" style="margin-top:8px">Select Student</button></div>
+<div class="type" id="t-business" onclick="pick('Business')"><div style="font-size:28px">🏪</div><b>Business</b><br><small>Shop Owner</small><br><button class="btn btn-dark" style="margin-top:8px">Select Business</button></div>
+<div class="type" id="t-community" onclick="pick('Community')"><div style="font-size:28px">👥</div><b>Community</b><br><small>Resident</small><br><button class="btn" style="margin-top:8px;background:#FACC15">Select Community</button></div>
 </div>
-<input id="name" class="input" placeholder="Full Name * e.g. Sulley Fouard">
-<div style="display:flex;gap:12px"><input id="phone" class="input" placeholder="Phone *"><input id="location" class="input" placeholder="Location * Aburi"></div>
-<p style="font-size:12px">Type: <b id="typeLabel">Student</b></p>
-<button class="btn btn-green" style="width:100%;margin-top:10px" onclick="register()">Create Membership + Join 3-in-1 →</button>
-<div id="memberIdDisplay"></div>
-</div>
-
-<div id="sec-sweep" class="card" style="display:none">
-<h3>2. Kakra Sweep + Governance Score</h3>
-<select id="wasteType" class="input"><option>Plastic</option><option>Organic</option><option>Metal</option></select>
-<input id="weight" class="input" type="number" placeholder="Weight kg" value="5">
-<input id="area" class="input" placeholder="Area e.g. Aburi" value="Aburi">
-<input id="memberId" class="input" placeholder="Your Member ID">
-<button class="btn btn-green" style="width:100%" onclick="sweep()">Submit Sweep & Earn ¢ + Score</button>
-<div id="sweepResult"></div>
+<input id="name" class="input" placeholder="Full Name * Sulley Fouard">
+<div style="display:flex;gap:10px"><input id="phone" class="input" placeholder="Phone * 0271543837"><input id="loc" class="input" placeholder="Location * Aburi"></div>
+<p style="font-size:13px">Selected: <b id="picked">Student</b></p>
+<button class="btn btn-green" onclick="becomeMember()">Create Membership + Join 3-in-1 →</button>
+<div id="out-member"></div>
 </div>
 
-<div id="sec-status" class="card" style="display:none">
-<h3>3. View Status & Rewards</h3>
-<div style="display:flex;gap:12px"><input id="statusId" class="input" placeholder="Enter Member ID"><button class="btn btn-dark" onclick="checkStatus()">Check Status</button></div>
-<div id="statusResult"></div>
+<!-- 2. SWEEP -->
+<div id="s-sweep" class="card" style="display:none">
+<h3>2. Kakra Sweep + Governance Score (H4G)</h3>
+<div style="display:flex;gap:10px"><select id="waste" class="input"><option>Plastic</option><option>Organic</option><option>Metal</option><option>E-Waste</option><option>Paper</option></select><input id="kg" class="input" type="number" placeholder="Weight kg *" value="5"></div>
+<div style="display:flex;gap:10px"><input id="area" class="input" placeholder="Area Swept * Akropong Market" value="Akropong"><input id="mid" class="input" placeholder="Member ID * ABAN-..."></div>
+<button class="btn btn-green" onclick="doSweep()">Submit Sweep & Earn ¢ + Score</button>
+<div id="out-sweep"></div>
+</div>
+
+<!-- 3. STATUS -->
+<div id="s-status" class="card" style="display:none">
+<h3>3. View Membership Status & Rewards</h3>
+<div style="display:flex;gap:10px"><input id="sid" class="input" placeholder="Enter Member ID e.g. ABAN-..."><button class="btn btn-dark" style="width:160px" onclick="doStatus()">Check Status</button></div>
+<div id="out-status"></div>
+<div class="card" style="background:#FFFBEB">
+<b>Leaderboard (Local)</b><div id="board" style="margin-top:8px;font-size:13px"></div>
 </div>
 </div>
+</div>
+
 <script>
-let selectedType='Student';
-function selectType(t){selectedType=t;document.getElementById('typeLabel').innerText=t;document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('selected'));document.getElementById('card-'+t.toLowerCase()).classList.add('selected');}
-function showSection(s){document.querySelectorAll('[id^=sec-]').forEach(e=>e.style.display='none');document.getElementById('sec-'+s).style.display='block';}
-async function register(){
-const name=document.getElementById('name').value;const phone=document.getElementById('phone').value;const location=document.getElementById('location').value;
-if(!name||!phone){alert('Enter Name & Phone');return;}
-const btn=event.target;btn.innerText='Creating...';
-try{
-const res=await fetch('/api?action=register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify
+let pickedType='Student';
+let DB = JSON.parse(localStorage.getItem('aban_db') || '{}');
+
+function pick(t){
+ pickedType=t;
+ document.getElementById('picked').innerText=t;
+ document.querySelectorAll('.type').forEach(e=>e.classList.remove('active'));
+ document.getElementById('t-'+t.toLowerCase()).classList.add('active');
+}
+function show(s){
+ document.querySelectorAll('[id^=s-]').forEach(e=>e.style.display='none');
+ document.getElementById('s-'+s).style.display='block';
+ document.querySelectorAll('.nav a').forEach(e=>e.classList.remove('active'));
+ document.getElementById('n-'+(s=='membership'?1:s=='sweep'?2:3)).classList.add('active');
+}
+
+function becomeMember(){
+ const name=document.getElementById('name').value.trim();
+ const phone=document.getElementById('phone').value.trim();
+ const loc=document.getElementById('loc').value.trim()||'Aburi';
+ if(!name||!phone){alert('Please enter Name and Phone');return;}
+ const id='ABAN-'+Math.random().toString(36).substring(2,8).toUpperCase();
+ const member={id,name,phone,loc,type:pickedType,kg:0,earned:0,points:0,created:Date.now()};
+ DB[id]=member;
+ localStorage.setItem('aban_db',JSON.stringify(DB));
+
+ // Try API sync (but don't wait)
+ fetch('/api/index.py?action=register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,location:loc,memberType:pickedType})}).catch(()=>{});
+
+ document.getElementById('out-member').innerHTML=`
+   <div class="ok">
+     <h3>🎉 Welcome ${name}!</h3>
+     <p style="font-size:22px;font-weight:900;color:#16A34A;margin:10px 0">Member ID: ${id}</p>
+     <p>Type: ${pickedType} | Location: ${loc}</p>
+     <p style="font-size:12px;color:#666;margin-top:6px">Saved on your phone. Use this ID for Sweep & Status.</p>
+     <button class="btn btn-green" style="margin-top:12px" onclick="document.getElementById('mid').value='${id}';document.getElementById('sid').value='${id}';show('sweep')">Go to Kakra Sweep →</button>
+   </div>`;
+ document.getElementById('mid').value=id;
+ document.getElementById('sid').value=id;
+ updateBoard();
+}
+
+function doSweep(){
+ const kg=parseFloat(document.getElementById('kg').value)||0;
+ const area=document.getElementById('area').value||'Aburi';
+ const mid=document.getElementById('mid').value.trim();
+ const waste=document.getElementById('waste').value;
+ if(!kg||!mid){alert('Enter kg and Member ID');return;}
+ if(!DB[mid]){alert('Member ID not found. Create membership first.');return;}
+ const reward=kg*5;
+ const points=kg*2;
+ DB[mid].kg+=kg;
+ DB[mid].earned+=reward;
+ DB[mid].points+=points;
+ localStorage.setItem('aban_db',JSON.stringify(DB));
+
+ fetch('/api/index.py?action=sweep',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({weight:kg,area,memberId:mid,wasteType:waste})}).catch(()=>{});
+
+ document.getElementById('out-sweep').innerHTML=`
+   <div class="ok">
+     <h3>♻️ Sweep Recorded!</h3>
+     <p style="font-size:18px;font-weight:800;color:#16A34A">Earned GHC ${reward} + ${points} Points</p>
+     <p>${kg}kg ${waste} at ${area}</p>
+     <p style="font-size:13px">Member: ${DB[mid].name} (${mid})</p>
+     <p style="font-size:13px">Total: ${DB[mid].kg}kg | GHC ${DB[mid].earned} | ${DB[mid].points} pts</p>
+     <button class="btn btn-dark" style="margin-top:10px" onclick="document.getElementById('sid').value='${mid}';show('status');doStatus()">View My Rewards →</button>
+   </div>`;
+ updateBoard();
+}
+
+function doStatus(){
+ const id=document.getElementById('sid').value.trim();
+ if(!id){alert('Enter Member ID');return;}
+ const m=DB[id];
+ if(!m){
+   document.getElementById('out-status').innerHTML=`<div class="ok" style="border-color:#DC2626;background:#FEF2F2">❌ ID ${id} not found on this phone. Try the ID you created: ${Object.keys(DB)[0]||'None yet'}</div>`;
+   return;
+ }
+ document.getElementById('out-status').innerHTML=`
+   <div class="ok" style="text-align:left">
+     <h3>📊 Status for ${m.name}</h3>
+     <p><b>Member ID:</b> ${m.id}</p>
+     <p><b>Type:</b> ${m.type} | <b>Location:</b> ${m.loc} | <b>Phone:</b> ${m.phone}</p>
+     <hr style="margin:10px 0">
+     <p><b>Total Swept:</b> ${m.kg} kg</p>
+     <p><b>Total Earned:</b> GHC ${m.earned}</p>
+     <p><b>Governance Points:</b> ${m.points}</p>
+     <p><b>Status:</b> ACTIVE ✅ Ready for Okuapeman Hackathon 1st Oct</p>
+     <button class="btn btn-green" style="margin-top:10px" onclick="show('sweep')">Sweep More Borla →</button>
+   </div>`;
+}
+
+function updateBoard(){
+ const list=Object.values(DB).sort((a,b)=>b.kg-a.kg).slice(0,5);
+ document.getElementById('totalMembers').innerText=Object.keys(DB).length+' Members (Local)';
+ document.getElementById('board').innerHTML=list.length?list.map((m,i)=>`${i+1}. ${m.name} - ${m.kg}kg - GHC${m.earned} - ${m.loc}`).join('<br>'):'No members yet. Create one!';
+}
+updateBoard();
+if(Object.keys(DB).length){
+ const last=Object.keys(DB)[Object.keys(DB).length-1];
+ document.getElementById('mid').value=last;
+ document.getElementById('sid').value=last;
+}
+</script>
+</body>
+</html>
