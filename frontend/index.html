@@ -1,130 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABAN BOME | Real Community Micro-Bank</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABAN BOME - Real Micro-Bank | Okuapem</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FAFAF8;--ink:#111110;--muted:#6B6B68;--line:#E8E6E1;--green:#0E2A1C;--lime:#D4FF32;--cream:#FFF8E8}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Geist',system-ui;background:var(--bg);color:var(--ink)}
-.serif{font-family:'Instrument Serif',serif}.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em}
-.sidebar{position:fixed;left:0;top:0;width:300px;height:100vh;background:var(--green);color:#EDEBE6;padding:24px 20px;display:flex;flex-direction:column;overflow-y:auto}
-.logo{font-family:'Instrument Serif',serif;font-size:28px;line-height:.95;color:#fff}.logo i{color:var(--lime);font-style:italic}
-.nav{margin-top:20px;display:flex;flex-direction:column;gap:4px}.nav a{display:flex;justify-content:space-between;padding:11px 12px;border-radius:10px;color:#A8A6A0;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none}.nav a.active{background:#fff;color:var(--green);font-weight:600}
-.main{margin-left:300px;padding:0}.topbar{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.kpi{display:flex;gap:22px}.kpi b{font-size:20px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 24px}
-.input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;outline:none}.btn{width:100%;padding:12px 16px;border-radius:12px;border:none;font-weight:600;font-size:13.5px;cursor:pointer}.btn-primary{background:var(--ink);color:#fff}.btn-lime{background:var(--lime);color:var(--ink)}.btn-ghost{background:transparent;border:1px solid var(--line)}
-.type{border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;background:#fff}.type.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.log{background:#111110;color:#D4FF32;border-radius:14px;padding:14px;font-family:'JetBrains Mono';font-size:11px;max-height:220px;overflow-y:auto;line-height:1.6}
-.ok{background:#F5FFD6;border:1px solid #C8E66A;border-radius:14px;padding:14px;margin-top:12px}.fund{background:var(--cream);border:1px solid #F0D9A0;border-radius:18px;padding:16px}
-.project{display:flex;justify-content:space-between;align-items:center;padding:14px;border:1px solid var(--line);border-radius:14px;margin:8px 0;background:#fff}
-.job{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:8px 0}.badge{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:600}
-@media(max-width:900px){.sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}.grid3,.grid2{grid-template-columns:1fr}.card{margin:12px}}
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--green:#0F2B1D;--lime:#D9FF5E;--cream:#FFF8E7;--stone:#E8E2D6}
+  body{font-family:'Geist',sans-serif;background:var(--cream);color:var(--green)}
+  h1,h2{font-family:'Instrument Serif',serif}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--green);color:white;display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+  .topbar .pool{background:var(--lime);color:var(--green);padding:8px 16px;border-radius:100px;font-weight:700}
+  .hero{max-width:1100px;margin:0 auto;padding:40px 20px;text-align:center}
+  .hero h1{font-size:56px;line-height:0.95;letter-spacing:-2px}
+  .hero h1 i{color:#6B8F71;font-style:italic}
+  .hero p{margin:16px auto;max-width:520px;color:#6B6B6B;font-size:18px}
+  .grid{max-width:1100px;margin:0 auto;padding:0 20px 80px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:18px}
+  .card{background:white;border:1.5px solid var(--stone);border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(15,43,29,0.06)}
+  .card.dark{background:var(--green);color:white;border-color:var(--green)}
+  .card h2{font-size:28px;margin-bottom:12px}
+  .label{font-size:11px;letter-spacing:1.5px;opacity:0.6;text-transform:uppercase;margin-bottom:8px;font-weight:700}
+  input,select{width:100%;padding:14px 16px;border:1.5px solid var(--stone);border-radius:14px;font-size:16px;background:white;margin-bottom:12px;outline:none}
+  input:focus{border-color:var(--green)}
+  .btn{width:100%;padding:16px;border-radius:14px;border:none;font-weight:700;font-size:16px;cursor:pointer;transition:0.2s}
+  .btn-green{background:var(--green);color:white}
+  .btn-green:hover{transform:translateY(-2px)}
+  .btn-lime{background:var(--lime);color:var(--green)}
+  .btn:disabled{opacity:0.5}
+  .kpi{display:flex;gap:12px;margin:20px 0}
+  .kpi div{flex:1;background:white;border:1px solid var(--stone);border-radius:16px;padding:14px;text-align:center}
+  .kpi b{font-size:22px;display:block}
+  .split{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+  .split div{background:var(--cream);border-radius:12px;padding:12px;text-align:center;font-size:13px}
+  .split b{display:block;font-size:18px}
+  .pill{display:inline-block;background:var(--cream);border:1px solid var(--stone);padding:6px 12px;border-radius:100px;font-size:12px;font-weight:700;margin:4px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}.hero h1{font-size:40px}}
+  .status{padding:10px 14px;border-radius:12px;background:#F0FFE0;border:1px solid #B8E6A0;font-size:13px;margin:12px 0;display:none}
 </style>
 </head>
 <body>
-<div class="sidebar">
-<div class="logo">ABAN BOME<br><i>Real Micro-Bank</i></div>
-<p class="mono" style="margin-top:8px;color:#8A8A86">REAL DATABASE • VERCEL • 40/40/20</p>
-<div style="margin-top:16px;padding:12px;background:rgba(255,255,255,.06);border-radius:14px;border:1px solid rgba(255,255,255,.1)">
-<div class="mono" style="color:#D4FF32">LIVE POOL AUM — REAL</div>
-<b id="fundTotalSide" class="serif" style="font-size:24px;color:#fff">GHC 12,450.00</b>
-<div class="mono" id="sideMeta" style="margin-top:6px;color:#A8A6A0">Connecting...</div>
-<div style="margin-top:8px"><span class="badge" style="background:var(--lime);color:var(--green)">REAL • ELITE</span></div>
-</div>
-<div class="nav">
-<a id="n1" class="active" onclick="show('membership')"><span>01 — Membership</span></a>
-<a id="n2" onclick="show('sweep')"><span>02 — Sweep & Earn</span></a>
-<a id="n3" onclick="show('kakra')"><span>03 — Kakra / Crawler</span></a>                                
-<a id="n4" onclick="show('fund')"><span>04 — Community Fund</span></a>
-<a id="n5" onclick="show('career')"><span>05 — Skills & Jobs</span></a>
-<a id="n6" onclick="show('egov')"><span>06 — E-Governance</span></a>
-<a id="n7" onclick="show('status')"><span>07 — Portfolio</span></a>
-</div>
-<div style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)" class="mono">REAL API<br>aban-bome.vercel.app<br>Shared for all users</div>
-</div>
-<div class="main">
-<div class="topbar">
-<div><h1 class="serif" style="font-size:28px;line-height:.9">Bank at your doorstep.<br><span style="color:#6B6B68">REAL — While you sleep.</span></h1><p class="mono" style="margin-top:6px">REAL DATABASE • SAME FUND FOR JUDGES • ELITE</p></div>
-<div class="kpi"><div><div class="mono">MEMBERS (REAL)</div><b id="totalM" class="serif">0</b></div><div><div class="mono">WASTE KG</div><b id="totalW" class="serif">0</b></div><div><div class="mono">POOL AUM</div><b id="totalF" class="serif">GHC 0</b></div></div>
-</div>
-<div id="s-membership" class="card"><div class="mono">01 / REAL ONBOARDING — POST /api/members</div><h2 class="serif" style="font-size:26px;margin-top:6px">Join — Real database, real for everyone.</h2><div class="grid3" style="margin-top:14px"><div class="type active" id="t-student" onclick="pick('Student')"><div class="mono">ROLE A</div><b>Youth / Student</b><br><small>Any school • 0.01 daily</small></div><div class="type" id="t-business" onclick="pick('Business')"><div class="mono">ROLE B</div><b>Investor</b><br><small>Invest GHC 1000+ • 10% return</small></div><div class="type" id="t-community" onclick="pick('Community')"><div class="mono">ROLE C</div><b>Resident</b><br><small>Any community • Sweep & earn</small></div></div><div class="grid2" style="margin-top:12px"><input id="name" class="input" placeholder="Full Name"><input id="phone" class="input" placeholder="Phone"><input id="loc" class="input" placeholder="Location / Town"><div style="display:flex;gap:10px"><input id="investAmt" class="input" placeholder="If Investor — Amount GHC"><select id="skill" class="input"><option value="">Skill Interest</option><option>Coding</option><option>Farming</option><option>Solar</option><option>Biogas</option><option>Welding</option></select></div></div><button class="btn btn-primary" style="margin-top:12px" onclick="becomeMemberReal()">Create Real Member → Vercel Backend</button><div id="out-member"></div></div>                        
 
-<div id="s-kakra" class="card" style="display:none"><div class="mono">03 / REAL NIGHT CRAWLER — POST /api/kakra/night-crawl</div><div class="grid2" style="margin-top:12px"><div class="fund"><div style="display:flex;justify-content:space-between"><b class="mono">REAL CRAWLER LOG</b><span class="badge" style="background:#111;color:#D4FF32">REAL API</span></div><div class="log" id="crawlLog" style="margin-top:10px">Click Run — Collects from ALL real members in Vercel DB.</div><button class="btn btn-primary" style="margin-top:12px" onclick="nightCrawlReal()">🌙 Run REAL Night Crawler</button><button class="btn btn-ghost" style="margin-top:8px" onclick="collectKakraReal()">Collect Single Real</button></div><div><div class="card" style="margin:0;background:#111;color:#EDEBE6"><div class="mono" style="color:#D4FF32">REAL ECONOMICS</div><div style="font-size:12px;margin-top:8px;color:#A8A6A0">MoMo 0.97 + Air 0.03 + Data 0.12 captured while sleeping<br>10,000 x 0.15 = GHC 45K/mo REAL AUM</div></div><div class="card" style="margin-top:12px"><div class="mono">MY REAL WALLET</div><div id="myWallet" style="margin-top:8px;font-size:13px">Check Portfolio</div></div></div></div></div>
-<div id="s-fund" class="card" style="display:none"><div class="mono">04 / REAL FUND</div><div class="fund" style="margin-top:10px"><b class="serif" style="font-size:24px">GHC <span id="fundAmt">0.00</span> REAL POOL</b><div class="mono" id="fundMeta"></div></div><div style="margin-top:14px" id="projects"></div><div id="out-fund"></div></div>
-<div id="s-career" class="card" style="display:none"><div class="mono">05 / REAL SKILLS</div><div class="grid2" style="margin-top:12px"><div class="job"><b>💻 Coding</b><br><small>GHC 5,000 — 12w — GHC 1,200/mo</small><br><button class="btn btn-primary" style="margin-top:8px" onclick="applyJobReal('Coding')">Apply Real (5 pts)</button></div><div class="job"><b>🌱 Farming</b><br><small>GHC 8,000 — 10w — GHC 800-1,500</small><br><button class="btn btn-primary" style="margin-top:8px" onclick="applyJobReal('Farming')">Apply Real</button></div><div class="job"><b>🔧 Solar</b><br><small>GHC 12,000 — 8w — GHC 1,250/mo</small><br><button class="btn btn-lime" style="margin-top:8px" onclick="applyJobReal('Solar')">Apply Real</button></div><div class="job"><b>♻️ Biogas</b><br><small>GHC 9,500 — 8w — GHC 900/mo</small><br><button class="btn btn-primary" style="margin-top:8px" onclick="applyJobReal('Biogas')">Apply Real</button></div></div><div id="out-career"></div></div>
-<div id="s-egov" class="card" style="display:none"><div class="mono">06 / REAL E-GOV</div><div class="grid2" style="margin-top:12px"><div class="card" style="margin:0"><input id="issue" class="input" placeholder="Issue"><input id="issueLoc" class="input" placeholder="Location" style="margin-top:8px"><button class="btn btn-primary" style="margin-top:10px" onclick="reportIssueReal()">Report Real</button><div id="out-issue" style="margin-top:8px"></div></div><div class="card" style="margin:0"><b>Pay via Real Kakra</b><input id="mid2" class="input" placeholder="Member ID" style="margin-top:8px"><button class="btn btn-lime" style="margin-top:8px" onclick="alert('Paid from real wallet!')">Pay Real</button></div></div><div class="card" style="margin-top:12px"><b class="mono">REAL REPORTS</b><div id="reports" style="font-size:12px;margin-top:8px"></div></div></div>
-<div id="s-status" class="card" style="display:none"><div class="mono">07 / REAL PORTFOLIO</div><div style="display:flex;gap:10px;margin-top:12px"><input id="sid" class="input" placeholder="ABAN-..."><button class="btn btn-primary" style="width:160px" onclick="doStatusReal()">Check Real</button></div><div id="out-status"></div><div class="card" style="margin-top:12px"><b class="mono">REAL LEADERBOARD</b><div id="board" style="font-size:12px;margin-top:8px"></div></div></div>
-</div></div>
+<div class="topbar">
+  <div style="font-family:'Instrument Serif';font-size:20px;font-weight:700">ABAN BOME <span style="color:var(--lime);font-style:italic;font-weight:400">Real</span></div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <div id="topMembers" style="font-size:13px;opacity:0.8">0 Members</div>
+    <div class="pool" id="topPool">GHC 12,450 LIVE</div>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>Bank at your<br><i>doorstep. REAL.</i></h1>
+  <p>Sweep waste, sell for GHC 3/kg, split 40/40/20. Money crawls at 02:03 while you sleep. Built for Akuapem.</p>
+  <div class="kpi">
+    <div><b id="kpiMembers">0</b><span class="label">Members</span></div>
+    <div><b id="kpiKg">0 kg</b><span class="label">Waste Sold</span></div>
+    <div><b id="kpiFund">GHC 0</b><span class="label">Community Fund</span></div>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- LEFT: ACTIONS -->
+  <div>
+    <div class="card">
+      <div class="label">Step 1 — Join in 10 seconds</div>
+      <h2>Create Member ID</h2>
+      <input id="name" placeholder="Name — e.g. Kwame from Aburi">
+      <input id="phone" placeholder="Phone — 024...">
+      <div style="display:flex;gap:10px">
+        <select id="loc" style="flex:1"><option>Aburi</option><option>Mampong</option><option>Akropong</option><option>Larteh</option><option>Mamfe</option><option>Market</option></select>
+        <select id="type" style="flex:1"><option value="Student">Student</option><option value="Resident">Resident</option><option value="Business">Business (Investor)</option></select>
+      </div>
+      <input id="invest" placeholder="Investment GHC (only for Business)" type="number" style="display:none">
+      <button class="btn btn-green" id="btnCreate" onclick="createMember()">✨ Create Real ID — ABAN-xxx</button>
+      <div id="createStatus" class="status"></div>
+      <div id="myIdBox" style="margin-top:12px;display:none;background:var(--lime);padding:14px;border-radius:14px;font-weight:700">Your ID: <span id="myId"></span> — Copy it!</div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="label">Step 2 — Earn from waste</div>
+      <h2>🧹 Sweep & Earn</h2>
+      <p style="color:#6B6B6B;font-size:14px;margin-bottom:12px">Collect waste, we sell at GHC 3/kg. You keep 40%, Assembly 40%, Community Fund 20% — Automatic!</p>
+      <input id="memberId" placeholder="Paste your ID — ABAN-xxxx">
+      <input id="kg" type="number" placeholder="KG collected — e.g. 5">
+      <button class="btn btn-lime" onclick="doSweep()">Sell Now — See Split</button>
+      <div id="sweepResult" class="status"></div>
+      <div class="split">
+        <div><b id="you40">GHC 0</b>You (40%)</div>
+        <div><b id="gov40">GHC 0</b>Assembly (40%)</div>
+        <div><b id="fund20">GHC 0</b>Fund (20%)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: NIGHT CRAWLER + FUND -->
+  <div>
+    <div class="card dark">
+      <div class="label" style="color:var(--lime)">Step 3 — Money while you sleep</div>
+      <h2>🌙 Night Crawler 02:03</h2>
+      <p style="opacity:0.8;font-size:14px;margin:10px 0 16px">At 2AM, we crawl MoMo, Airtime, Data — Collect kakra (small change) into your account. Real for Ghana!</p>
+      <button class="btn btn-lime" onclick="nightCrawl()">🌙 Run Night Crawler Now</button>
+      <div id="crawlResult" class="status" style="background:#1E3A2A;color:white;border-color:#2D5A3D"></div>
+      <div style="margin-top:16px;font-size:13px;opacity:0.7">For judges: Open 2 phones, run crawl, see fund increase SAME on both = REAL shared DB!</div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="label">Community Fund — Vote with points</div>
+      <h2>🏦 GHC <span id="fundBig">12,450</span> Pool</h2>
+      <div id="projects"></div>
+      <div style="margin-top:12px">
+        <input id="voteId" placeholder="Your ID to vote" style="padding:10px">
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn" style="background:var(--cream);flex:1" onclick="vote(0)">Borehole (312)</button>
+          <button class="btn" style="background:var(--cream);flex:1" onclick="vote(1)">Library (234)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="label">Leaderboard — Top earners in Akuapem</div>
+      <div id="board">Loading...</div>
+    </div>
+  </div>
+</div>
+
 <script>
-let pickedType='Student';
-function pick(t){pickedType=t;document.querySelectorAll('.type').forEach(e=>e.classList.remove('active'));document.getElementById('t-'+t.toLowerCase()).classList.add('active');}
-function show(s){document.querySelectorAll('[id^=s-]').forEach(e=>e.style.display='none');document.getElementById('s-'+s).style.display='block';document.querySelectorAll('.nav a').forEach(e=>e.classList.remove('active'));let map={membership:'n1',sweep:'n2',kakra:'n3',fund:'n4',career:'n5',egov:'n6',status:'n7'};document.getElementById(map[s]).classList.add('active');}
-async function becomeMemberReal(){
- const name=document.getElementById('name').value.trim();
- const phone=document.getElementById('phone').value.trim();
- const loc=document.getElementById('loc').value.trim()||'Community';
- const investAmt=parseFloat(document.getElementById('investAmt').value)||0;
- const skill=document.getElementById('skill').value||'';
- if(!name||!phone){alert('Name & Phone');return;}
- document.getElementById('out-member').innerHTML='<div class="ok">⏳ Creating real member on Vercel...</div>';
- try{
-  const res=await fetch('/api/members',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,loc,type:pickedType,investAmt,skill})});
-  const data=await res.json();
-  if(data.id){
-   document.getElementById('out-member').innerHTML=`<div class="ok"><b>✅ Real Member Created!</b><br><span class="mono">ID: ${data.id}</span><br>${data.name} • ${data.type}<br><button class="btn btn-primary" style="margin-top:8px" onclick="document.getElementById('mid').value='${data.id}';document.getElementById('mid2').value='${data.id}';document.getElementById('sid').value='${data.id}';show('sweep')">Continue →</button></div>`;
-   document.getElementById('mid').value=data.id;document.getElementById('mid2').value=data.id;document.getElementById('sid').value=data.id;loadStats();
-  } else {document.getElementById('out-member').innerHTML=`<div class="ok" style="background:#FEE">Error: ${JSON.stringify(data)}</div>`}
- }catch(e){document.getElementById('out-member').innerHTML=`<div class="ok" style="background:#FEE">Error: ${e}</div>`}
-}
-async function doSweepReal(){
- const member_id=document.getElementById('mid').value.trim();
- const kg=parseFloat(document.getElementById('kg').value)||0;
- const area=document.getElementById('area').value||'Market';
- if(!member_id||!kg){alert('ID & KG');return;}
- document.getElementById('out-sweep').innerHTML='<div class="ok">⏳ Real sweep...</div>';
- try{const res=await fetch('/api/sweep',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id,kg,area})});const data=await res.json();document.getElementById('out-sweep').innerHTML=`<div class="ok"><b>♻️ Real Sweep Saved!</b><br>Sales GHC ${data.total_sales} | You 40% GHC ${data.you_40} | Gov 40% GHC ${data.gov_40} | Fund 20% GHC ${data.fund_20}<br>Fund REAL GHC ${data.fund_now}</div>`;loadStats();}catch(e){document.getElementById('out-sweep').innerHTML=`Error ${e}`;}
-}
-async function collectKakraReal(){
- const member_id=document.getElementById('mid').value.trim();
- if(!member_id){alert('ID');return;}
- const res=await fetch('/api/kakra/collect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id})});
- const data=await res.json();
- document.getElementById('crawlLog').innerHTML=`Collected REAL GHC ${data.collected} — Fund REAL GHC ${data.fund_now}<br>`+document.getElementById('crawlLog').innerHTML;loadStats();
-}
-async function nightCrawlReal(){
- document.getElementById('crawlLog').innerHTML='⏳ Running REAL Night Crawler...<br>'+document.getElementById('crawlLog').innerHTML;
- try{const res=await fetch('/api/kakra/night-crawl',{method:'POST'});const data=await res.json();let details=data.details?data.details.map(d=>`${d.name}: GHC ${d.total}`).join('<br>') : '';document.getElementById('crawlLog').innerHTML=`<b>🌙 REAL — ${data.message}</b><br>Fund REAL GHC ${data.fund_now}<br>${details}<br><br>`+document.getElementById('crawlLog').innerHTML;alert(`REAL: ${data.message}`);loadStats();}catch(e){document.getElementById('crawlLog').innerHTML=`Error ${e}<br>`+document.getElementById('crawlLog').innerHTML}
-}
-async function doStatusReal(){
- const id=document.getElementById('sid').value.trim();
- if(!id){alert('ID');return;}
- const res=await fetch('/api/members/'+id);const m=await res.json();
- if(m.error){document.getElementById('out-status').innerHTML=`<div class="ok" style="background:#FEE">${m.error}</div>`;return;}
- document.getElementById('out-status').innerHTML=`<div class="ok" style="text-align:left"><div class="mono">${m.id} • ${m.type} • ${m.loc}</div><h3 class="serif">${m.name} — REAL Portfolio</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;font-size:13px"><div>Swept: ${m.kg}kg<br>Earned: GHC ${m.earned}<br>Kakra: GHC ${m.kakra}</div><div>Points: ${m.points}<br>Dividend: GHC ${m.dividend}/mo<br>Contribution: GHC ${m.contribution}</div></div><div style="margin-top:8px">Skills: ${m.applied.join(', ')||'None'}</div></div>`;
- document.getElementById('myWallet').innerHTML=`<span class="mono">${m.id}</span><br>${m.name}<br>Kakra GHC ${m.kakra}`;
-}
+const API = '/api';
+let myIdCache = localStorage.getItem('aban_id') || '';
+
 async function loadStats(){
- try{
-  const res=await fetch('/api/fund');const data=await res.json();
-  document.getElementById('fundTotalSide').innerText='GHC '+parseFloat(data.fund).toFixed(2);
-  document.getElementById('fundAmt').innerText=parseFloat(data.fund).toFixed(2);
-  document.getElementById('totalM').innerText=data.members;
-  document.getElementById('totalW').innerText=(data.total_kg||0)+'kg';
-  document.getElementById('totalF').innerText='GHC '+(data.fund/1000).toFixed(1)+'k';
-  document.getElementById('fundMeta').innerText=`REAL — ${data.members} members • Kg ${data.total_kg||0} • Kakra GHC ${(data.total_kakra||0).toFixed(2)} • Inv GHC ${data.inv_pool}`;
-  document.getElementById('sideMeta').innerText=`${data.members} real members • Fund REAL GHC ${parseFloat(data.fund).toFixed(0)} • 02:03`;
-  document.getElementById('projects').innerHTML=data.projects.map((p,i)=>`<div class="project"><div><div class="mono">PROJECT 0${i+1}</div><b>${['Borehole','Street Lights','Solar Schools','Biogas'][i]} — ${p.votes} votes</b></div><button class="btn btn-primary" style="width:90px" onclick="voteReal(${p.id})">Vote Real</button></div>`).join('');
-  const res2=await fetch('/api/leaderboard');const leaders=await res2.json();document.getElementById('board').innerHTML=leaders.map((m,i)=>`${i+1}. ${m.name} — GHC${m.kakra} + ${m.kg}kg`).join('<br>')||'No members yet';
-  const res3=await fetch('/api/reports');const reports=await res3.json();document.getElementById('reports').innerHTML=reports.map(r=>`• ${r.issue} at ${r.loc}`).join('<br>')||'No reports';
- }catch(e){document.getElementById('sideMeta').innerText='Backend error: '+e}
+  try{
+    const r = await fetch(API+'/fund'); const d = await r.json();
+    document.getElementById('topPool').innerText = `GHC ${Number(d.fund).toLocaleString()} LIVE`;
+    document.getElementById('kpiMembers').innerText = d.members;
+    document.getElementById('kpiKg').innerText = `${d.total_kg||0} kg`;
+    document.getElementById('kpiFund').innerText = `GHC ${Math.round(d.fund)}`;
+    document.getElementById('fundBig').innerText = Math.round(d.fund).toLocaleString();
+    document.getElementById('topMembers').innerText = `${d.members} Members • ${d.total_kg||0}kg sold`;
+    document.getElementById('projects').innerHTML = (d.projects||[]).map(p=>`<div class="pill">Project ${p.id}: ${p.votes} votes</div>`).join('');
+  }catch(e){console.log(e)}
+  try{
+    const r2 = await fetch(API+'/leaderboard'); const list = await r2.json();
+    document.getElementById('board').innerHTML = list.map((m,i)=>`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>${i+1}. ${m.name} • ${m.loc}</span><b>GHC ${m.earned||0}</b></div>`).join('') || 'No members yet — Be first!';
+  }catch(e){}
 }
-async function voteReal(id){const mid=document.getElementById('sid').value||document.getElementById('mid').value;if(!mid){alert('ID');return;}const r=await fetch('/api/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id:mid,project_id:id})});const d=await r.json();document.getElementById('out-fund').innerHTML=d.error?`Error ${d.error}`:`✅ Voted real — ${d.new_votes}`;loadStats();}
-async function applyJobReal(skill){const mid=document.getElementById('sid').value||document.getElementById('mid').value;if(!mid){alert('ID');return;}const r=await fetch('/api/apply-job',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id:mid,skill})});const d=await r.json();document.getElementById('out-career').innerHTML=d.error?`Error ${d.error}`:`✅ ${d.message}`;}
-async function reportIssueReal(){const issue=document.getElementById('issue').value;const loc=document.getElementById('issueLoc').value;if(!issue){alert('Issue');return;}const r=await fetch('/api/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({issue,loc})});document.getElementById('out-issue').innerHTML=`✅ Real report saved`;loadStats();}
-loadStats();setInterval(loadStats,5000);
+async function createMember(){
+  const btn=document.getElementById('btnCreate'); btn.disabled=true; btn.innerText='Creating...';
+  const body={name:document.getElementById('name').value, phone:document.getElementById('phone').value, loc:document.getElementById('loc').value, type:document.getElementById('type').value, investAmt: parseFloat(document.getElementById('invest').value)||0 };
+  if(!body.name||!body.phone){show('createStatus','Fill name + phone!','red'); btn.disabled=false; btn.innerText='✨ Create Real ID — ABAN-xxx'; return}
+  try{
+    const r=await fetch(API+'/members',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(d.id){ localStorage.setItem('aban_id',d.id); myIdCache=d.id; document.getElementById('myId').innerText=d.id; document.getElementById('myIdBox').style.display='block'; document.getElementById('memberId').value=d.id; document.getElementById('voteId').value=d.id; show('createStatus',`✅ Real Member Created! ID: ${d.id} — Saved!`,'green'); loadStats(); }
+    else{ show('createStatus',`Error: ${JSON.stringify(d)}`,'red'); }
+  }catch(e){ show('createStatus','Backend not ready — Use RAW api/index.py fix!','red'); }
+  btn.disabled=false; btn.innerText='✨ Create Real ID — ABAN-xxx';
+}
+async function doSweep(){
+  const mid=document.getElementById('memberId').value||myIdCache; const kg=parseFloat(document.getElementById('kg').value);
+  if(!mid||!kg){alert('Paste ID + KG'); return}
+  const r=await fetch(API+'/sweep',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id:mid,kg:kg,area:document.getElementById('loc').value})});
+  const d=await r.json();
+  if(d.total_sales){ document.getElementById('you40').innerText=`GHC ${d.you_40}`; document.getElementById('gov40').innerText=`GHC ${d.gov_40}`; document.getElementById('fund20').innerText=`GHC ${d.fund_20}`; show('sweepResult',`✅ Sold ${kg}kg for GHC ${d.total_sales}! You earned GHC ${d.you_40} — Fund now GHC ${Math.round(d.fund_now)}`,'green'); loadStats(); }
+  else{ show('sweepResult',`Error: ${d.error||JSON.stringify(d)}`,'red'); }
+}
+async function nightCrawl(){
+  const el=document.getElementById('crawlResult'); el.style.display='block'; el.innerText='🌙 Crawling at 02:03... Collecting MoMo + Airtime...';
+  const r=await fetch(API+'/kakra/night-crawl',{method:'POST'}); const d=await r.json();
+  el.innerText = d.message ? `✅ ${d.message} — New Fund: GHC ${Math.round(d.fund_now)}` : JSON.stringify(d); loadStats();
+}
+async function vote(pid){
+  const mid=document.getElementById('voteId').value||myIdCache||document.getElementById('memberId').value;
+  if(!mid){alert('Paste ID first'); return}
+  const r=await fetch(API+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id:mid,project_id:pid})});
+  const d=await r.json(); alert(d.new_votes?`Voted! New votes: ${d.new_votes}`:JSON.stringify(d)); loadStats();
+}
+function show(id,msg,color){
+  const el=document.getElementById(id); el.style.display='block'; el.innerText=msg; el.style.background=color=='red'?'#FFECEC':'#F0FFE0'; el.style.borderColor=color=='red'?'#FFA0A0':'#B8E6A0';
+}
+document.getElementById('type').addEventListener('change',e=>{ document.getElementById('invest').style.display = e.target.value==='Business'?'block':'none'; });
+loadStats(); setInterval(loadStats,5000);
+if(myIdCache){ document.getElementById('memberId').value=myIdCache; document.getElementById('voteId').value=myIdCache; }
 </script>
 </body>
-</html>    
-<div id="s-sweep" class="card" style="display:none"><div class="mono">02 / REAL SWEEP — POST /api/sweep — 40/40/20</div><h2 class="serif" style="font-size:24px;margin-top:6px">Waste → Factory → Real profit split</h2><div class="grid3" style="margin-top:12px"><div><label class="mono">MEMBER ID (REAL)</label><input id="mid" class="input" placeholder="ABAN-..."></div><div><label class="mono">KG</label><input id="kg" class="input" type="number" value="5"></div><div><label class="mono">AREA</label><input id="area" class="input" placeholder="Market"></div></div><div style="margin-top:12px"><select id="waste" class="input"><option>Plastic GHC 3/kg</option><option>Organic</option><option>Metal GHC 5/kg</option></select></div><button class="btn btn-primary" style="margin-top:12px" onclick="doSweepReal()">Submit Real Sweep → Backend</button><div id="out-sweep"></div></div>
+</html>
