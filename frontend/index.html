@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ABAN BOME 3-in-1</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #0a2a12;
+            color: white;
+            padding: 15px
+        }
+
+        .card {
+            background: white;
+            color: black;
+            padding: 18px;
+            border-radius: 14px;
+            margin: 12px 0
+        }
+
+        button {
+            background: #0a2a12;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 8px
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 4px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc
+        }
+
+        h2 {
+            color: #0a2a12
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏔️ ABAN BƆME 3-in-1</h1>
+    <p>Governance + Kakra Sweep Bank + Skills | Okuapeman OS</p>
+
+    <div class="card">
+        <h2>1. Become Member (Student or Business)</h2>
+        <input id="name" placeholder="Name - Maame Esi"><input id="phone" placeholder="Phone 024..."><input id="town"
+            placeholder="Town - Aburi"><select id="type">
+            <option>Business</option>
+            <option>Student</option>
+        </select>
+        <button onclick="register()">Register - Get OKP ID</button>
+        <p id="regOut"></p>
+    </div>
+
+    <div class="card">
+        <h2>2. Skills + Govt Certificate (+40 Score)</h2>
+        <button onclick="cert()">Get Certified - GEA/KTU + Assembly</button>
+        <p id="certOut"></p>
+    </div>
+
+    <div class="card">
+        <h2>3. Kakra Sweep - Dawn Sweeper</h2>
+        <input id="momo" type="number" placeholder="MoMo e.g. 43.70"><input id="air" type="number"
+            placeholder="Airtime e.g. 2.35"><input id="data" type="number" placeholder="Data MB e.g. 47">
+        <button onclick="sweep()">Sweep My Kakra Now (4AM Logic)</button>
+        <p id="sweepOut"></p>
+    </div>
+
+    <div class="card">
+        <h2>4. DCE Dashboard - Live Pool</h2>
+        <button onclick="dash()">Load Live Pool</button>
+        <p id="dashOut"></p>
+    </div>
+
+    <script>
+        const API = "/api";
+        async function register() { const r = await fetch(API + "/membership/register", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ full_name: name.value, phone: phone.value, town: town.value, type: type.value }) }); regOut.innerText = JSON.stringify(await r.json(), null, 2) }
+        async function cert() { const r = await fetch(API + `/skills/certify?phone=${phone.value}&skill_id=SK01`, { method: "POST" }); certOut.innerText = JSON.stringify(await r.json(), null, 2) }
+        async function sweep() { const r = await fetch(API + "/kakra/sweep", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ phone: phone.value, momo_balance: parseFloat(momo.value), airtime_balance: parseFloat(air.value), data_mb: parseFloat(data.value) }) }); sweepOut.innerText = JSON.stringify(await r.json(), null, 2) }
+        async function dash() { const r = await fetch(API + "/dashboard"); const d = await r.json(); dashOut.innerText = `Members:${d.total_members} | Pool:GH₵${d.total_swept} | Details:${JSON.stringify(d.all_members).slice(0, 300)}` }
+    </script>
+</body>
+
+</html>
