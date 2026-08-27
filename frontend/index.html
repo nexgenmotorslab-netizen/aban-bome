@@ -1,321 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABAN BOME | Community Micro-Bank & Circular Economy Platform</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABAN BOME | Real Community Micro-Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FAFAF8;--ink:#111110;--muted:#6B6B68;--line:#E8E6E1;--green:#0E2A1C;--lime:#D4FF32;--cream:#FFF8E8;--card:#FFFFFF}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Geist',system-ui;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
-.serif{font-family:'Instrument Serif',serif}
-.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em}
-.sidebar{position:fixed;left:0;top:0;width:300px;height:100vh;background:var(--green);color:#EDEBE6;padding:28px 22px;display:flex;flex-direction:column}
-.logo{font-family:'Instrument Serif',serif;font-size:28px;line-height:.95;color:#fff;letter-spacing:-.02em}
-.logo i{color:var(--lime);font-style:italic}
-.side-meta{margin-top:18px;padding:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px}
-.nav{margin-top:22px;display:flex;flex-direction:column;gap:4px}
-.nav a{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:10px;color:#A8A6A0;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:.2s}
-.nav a:hover{background:rgba(255,255,255,.07);color:#fff}
-.nav a.active{background:#fff;color:var(--green);font-weight:600}
-.badge{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.05em}
-.main{margin-left:300px;padding:0}
-.topbar{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
-.kpi{display:flex;gap:28px}
-.kpi b{font-size:20px;letter-spacing:-.02em}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;margin:0;box-shadow:0 1px 0 rgba(0,0,0,.03)}
-.section{padding:28px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.type{border:1px solid var(--line);border-radius:16px;padding:18px;text-align:left;cursor:pointer;transition:.2s;background:#fff}
-.type:hover{border-color:var(--ink)}
-.type.active{border-color:var(--ink);background:var(--ink);color:#fff}
-.type.active small{color:#A8A6A0!important}
-.input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:13.5px;font-family:'Geist';outline:none;transition:.2s}
-.input:focus{border-color:var(--ink)}
-.btn{width:100%;padding:12px 16px;border-radius:12px;border:none;font-weight:600;font-size:13.5px;cursor:pointer;letter-spacing:-.01em;transition:.2s}
-.btn-primary{background:var(--ink);color:#fff}
-.btn-primary:hover{background:#000}
-.btn-lime{background:var(--lime);color:var(--ink)}
-.btn-ghost{background:transparent;border:1px solid var(--line)}
-.fund{background:var(--cream);border:1px solid #F0D9A0;border-radius:18px;padding:18px}
-.log{background:#111110;color:#D4FF32;border-radius:14px;padding:14px;font-family:'JetBrains Mono';font-size:11px;line-height:1.6;max-height:220px;overflow-y:auto}
-.project{display:flex;justify-content:space-between;align-items:center;padding:16px;border:1px solid var(--line);border-radius:16px;margin:8px 0;background:#fff;transition:.2s}
-.project:hover{border-color:var(--ink)}
-.job{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
-.ok{background:#F5FFD6;border:1px solid #C8E66A;border-radius:14px;padding:14px;margin-top:12px}
-@media(max-width:960px){.sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}.grid3,.grid2{grid-template-columns:1fr}.topbar{flex-direction:column;align-items:flex-start;gap:12px}}
+:root{--bg:#FAFAF8;--ink:#111110;--muted:#6B6B68;--line:#E8E6E1;--green:#0E2A1C;--lime:#D4FF32;--cream:#FFF8E8}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Geist',system-ui;background:var(--bg);color:var(--ink)}
+.serif{font-family:'Instrument Serif',serif}.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em}
+.sidebar{position:fixed;left:0;top:0;width:300px;height:100vh;background:var(--green);color:#EDEBE6;padding:24px 20px;display:flex;flex-direction:column;overflow-y:auto}
+.logo{font-family:'Instrument Serif',serif;font-size:28px;line-height:.95;color:#fff}.logo i{color:var(--lime);font-style:italic}
+.nav{margin-top:20px;display:flex;flex-direction:column;gap:4px}.nav a{display:flex;justify-content:space-between;padding:11px 12px;border-radius:10px;color:#A8A6A0;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none}.nav a.active{background:#fff;color:var(--green);font-weight:600}
+.main{margin-left:300px;padding:0}.topbar{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.kpi{display:flex;gap:22px}.kpi b{font-size:20px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 24px}
+.input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;outline:none}.btn{width:100%;padding:12px 16px;border-radius:12px;border:none;font-weight:600;font-size:13.5px;cursor:pointer}.btn-primary{background:var(--ink);color:#fff}.btn-lime{background:var(--lime);color:var(--ink)}.btn-ghost{background:transparent;border:1px solid var(--line)}
+.type{border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;background:#fff}.type.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.log{background:#111110;color:#D4FF32;border-radius:14px;padding:14px;font-family:'JetBrains Mono';font-size:11px;max-height:220px;overflow-y:auto;line-height:1.6}
+.ok{background:#F5FFD6;border:1px solid #C8E66A;border-radius:14px;padding:14px;margin-top:12px}.fund{background:var(--cream);border:1px solid #F0D9A0;border-radius:18px;padding:16px}
+.project{display:flex;justify-content:space-between;align-items:center;padding:14px;border:1px solid var(--line);border-radius:14px;margin:8px 0;background:#fff}
+.job{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:8px 0}.badge{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:600}
+@media(max-width:900px){.sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}.grid3,.grid2{grid-template-columns:1fr}.card{margin:12px}}
 </style>
 </head>
 <body>
 <div class="sidebar">
-<div class="logo">ABAN BOME<br><i>Micro-Bank</i></div>
-<p class="mono" style="margin-top:8px;color:#8A8A86">CIRCULAR ECONOMY • 0.01 MICRO-SAVINGS • 02:03 NIGHT CRAWLER</p>
-<div class="side-meta">
-<div class="mono" style="color:#D4FF32">LIVE COMMUNITY POOL</div>
-<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6px"><b id="fundTotalSide" class="serif" style="font-size:26px;color:#fff">GHC 12,450.00</b><span class="mono" style="color:#A8A6A0">AUDITED</span></div>
-<div class="mono" id="sideMeta" style="margin-top:6px;color:#A8A6A0">848 members • Last crawl 02:03 • 40/40/20 model</div>
-<div style="margin-top:12px;display:flex;gap:6px"><span class="badge" style="background:var(--lime);color:var(--green)">0.01 PES. CAPTURE</span><span class="badge" style="background:rgba(255,255,255,.1);color:#fff">DIVIDEND READY</span></div>
+<div class="logo">ABAN BOME<br><i>Real Micro-Bank</i></div>
+<p class="mono" style="margin-top:8px;color:#8A8A86">REAL DATABASE • VERCEL • 40/40/20</p>
+<div style="margin-top:16px;padding:12px;background:rgba(255,255,255,.06);border-radius:14px;border:1px solid rgba(255,255,255,.1)">
+<div class="mono" style="color:#D4FF32">LIVE POOL AUM — REAL</div>
+<b id="fundTotalSide" class="serif" style="font-size:24px;color:#fff">GHC 12,450.00</b>
+<div class="mono" id="sideMeta" style="margin-top:6px;color:#A8A6A0">Connecting...</div>
+<div style="margin-top:8px"><span class="badge" style="background:var(--lime);color:var(--green)">REAL • ELITE</span></div>
 </div>
 <div class="nav">
-<a id="n1" class="active" onclick="show('membership')"><span>01 — Membership</span><span class="badge" style="background:#E8E6E1">NEW</span></a>
-<a id="n2" onclick="show('sweep')"><span>02 — Sweep & Value Recovery</span><span>♻️</span></a>
-<a id="n3" onclick="show('kakra')"><span>03 — Kakra Wallet / Night Crawler</span><span>🌙</span></a>
-<a id="n4" onclick="show('fund')"><span>04 — Community Fund & Governance</span><span>🏦</span></a>
-<a id="n5" onclick="show('career')"><span>05 — Skills, Jobs & Enduring Projects</span><span>💼</span></a>
-<a id="n6" onclick="show('egov')"><span>06 — E-Governance</span><span>🏛️</span></a>
-<a id="n7" onclick="show('status')"><span>07 — Portfolio & Dividends</span><span>📊</span></a>
+<a id="n1" class="active" onclick="show('membership')"><span>01 — Membership</span></a>
+<a id="n2" onclick="show('sweep')"><span>02 — Sweep & Earn</span></a>
+<a id="n3" onclick="show('kakra')"><span>03 — Kakra / Crawler</span></a>                                
+<a id="n4" onclick="show('fund')"><span>04 — Community Fund</span></a>
+<a id="n5" onclick="show('career')"><span>05 — Skills & Jobs</span></a>
+<a id="n6" onclick="show('egov')"><span>06 — E-Governance</span></a>
+<a id="n7" onclick="show('status')"><span>07 — Portfolio</span></a>
 </div>
-<div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)">
-<div class="mono" style="color:#6B6B68">BUILT FOR ANY COMMUNITY<br>GENERIC • SCALABLE • AUDITABLE<br>Small money → Enduring infrastructure</div>
-</div>
+<div style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)" class="mono">REAL API<br>aban-bome.vercel.app<br>Shared for all users</div>
 </div>
 <div class="main">
 <div class="topbar">
-<div>
-<h1 class="serif" style="font-size:32px;line-height:.9;letter-spacing:-.03em">Bank at your doorstep.<br><span style="color:#6B6B68">While you sleep.</span></h1>
-<p class="mono" style="margin-top:8px">COLLECTS 0.01, 0.03 PES. • CONVERTS WASTE TO REVENUE • FUNDS SOLAR, BOREHOLES, JOBS</p>
+<div><h1 class="serif" style="font-size:28px;line-height:.9">Bank at your doorstep.<br><span style="color:#6B6B68">REAL — While you sleep.</span></h1><p class="mono" style="margin-top:6px">REAL DATABASE • SAME FUND FOR JUDGES • ELITE</p></div>
+<div class="kpi"><div><div class="mono">MEMBERS (REAL)</div><b id="totalM" class="serif">0</b></div><div><div class="mono">WASTE KG</div><b id="totalW" class="serif">0</b></div><div><div class="mono">POOL AUM</div><b id="totalF" class="serif">GHC 0</b></div></div>
 </div>
-<div class="kpi">
-<div><div class="mono">MEMBERS</div><b id="totalM" class="serif">0</b></div>
-<div><div class="mono">WASTE RECOVERED</div><b id="totalW" class="serif">0kg</b></div>
-<div><div class="mono">POOL AUM</div><b id="totalF" class="serif" style="color:#0E2A1C">GHC 0</b></div>
-</div>
-</div>
-<div class="section">
-<div id="s-membership" class="card">
+<div id="s-membership" class="card"><div class="mono">01 / REAL ONBOARDING — POST /api/members</div><h2 class="serif" style="font-size:26px;margin-top:6px">Join — Real database, real for everyone.</h2><div class="grid3" style="margin-top:14px"><div class="type active" id="t-student" onclick="pick('Student')"><div class="mono">ROLE A</div><b>Youth / Student</b><br><small>Any school • 0.01 daily</small></div><div class="type" id="t-business" onclick="pick('Business')"><div class="mono">ROLE B</div><b>Investor</b><br><small>Invest GHC 1000+ • 10% return</small></div><div class="type" id="t-community" onclick="pick('Community')"><div class="mono">ROLE C</div><b>Resident</b><br><small>Any community • Sweep & earn</small></div></div><div class="grid2" style="margin-top:12px"><input id="name" class="input" placeholder="Full Name"><input id="phone" class="input" placeholder="Phone"><input id="loc" class="input" placeholder="Location / Town"><div style="display:flex;gap:10px"><input id="investAmt" class="input" placeholder="If Investor — Amount GHC"><select id="skill" class="input"><option value="">Skill Interest</option><option>Coding</option><option>Farming</option><option>Solar</option><option>Biogas</option><option>Welding</option></select></div></div><button class="btn btn-primary" style="margin-top:12px" onclick="becomeMemberReal()">Create Real Member → Vercel Backend</button><div id="out-member"></div></div>                        
 
- <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
-<div><div class="mono">01 / ONBOARDING</div><h2 class="serif" style="font-size:28px;margin-top:6px;letter-spacing:-.02em">Join the micro-bank.<br>Open for every citizen.</h2><p style="margin-top:8px;color:var(--muted);font-size:13px;max-width:520px">No minimum balance. Night Crawler captures dormant value — MoMo pesewas, expiring data, leftover airtime — and converts to community equity. Investor, student, resident — all earn.</p></div>
-<div class="fund" style="min-width:260px"><div class="mono">HOW IT WORKS</div><div style="font-size:12px;margin-top:8px;line-height:1.5">60% → Enduring projects<br>20% → Monthly dividends<br>20% → Skills & jobs<br><br><span class="mono" style="background:#111;color:#D4FF32;padding:2px 6px;border-radius:6px">10K people x 0.15/day = GHC 45K/mo</span></div></div>
-</div>
-<div class="grid3" style="margin-top:18px">
-<div class="type active" id="t-student" onclick="pick('Student')"><div class="mono">ROLE A</div><b style="font-size:15px">Youth / Student</b><br><small style="color:var(--muted)">Any school, any age • Saves 0.01 daily • Earns dividends + career</small></div>
-<div class="type" id="t-business" onclick="pick('Business')"><div class="mono">ROLE B</div><b style="font-size:15px">Investor</b><br><small style="color:var(--muted)">Invest GHC 1,000+ • Funds projects • 10% monthly return + skilled workforce</small></div>
-<div class="type" id="t-community" onclick="pick('Community')"><div class="mono">ROLE C</div><b style="font-size:15px">Resident / Citizen</b><br><small style="color:var(--muted)">Any town • Sweeps & saves • 40% instant + dividends</small></div>
-</div>
-<div class="grid2" style="margin-top:14px">
-<input id="name" class="input" placeholder="Full Name">
-<input id="phone" class="input" placeholder="Phone Number">
-<input id="loc" class="input" placeholder="Location / Town">
-<div style="display:flex;gap:10px"><input id="investAmt" class="input" placeholder="If Investor — Amount (GHC)"><select id="skill" class="input"><option value="">Skill Interest (optional)</option><option>Coding & App Development</option><option>Organic Farming & Agribusiness</option><option>Solar & Green Energy</option><option>Biogas & Circular Systems</option><option>Welding & Recycling Manufacturing</option></select></div>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px"><button class="btn btn-primary" onclick="becomeMember()">Create Membership & Enable Night Crawler →</button><button class="btn btn-ghost" style="width:auto" onclick="localStorage.clear(); location.reload()">Reset Demo</button></div>
-<div id="out-member"></div>
-</div>
-
-<div id="s-sweep" class="card" style="display:none">
-<div class="mono">02 / CIRCULAR ECONOMY</div>
-<h2 class="serif" style="font-size:26px;margin-top:6px">Waste is not cost. Waste is inventory.</h2>
-<p style="color:var(--muted);font-size:13px;margin-top:6px;max-width:640px">Old model: Assembly pays GHC 10k to dump. New model: 40% Sweeper / 40% Government-Assembly / 20% Community Fund. Assembly earns revenue, town stays clean, contributors earn dividends.</p>
-<div class="grid3" style="margin-top:16px">
-<div><label class="mono">WASTE STREAM</label><select id="waste" class="input"><option>Plastic — GHC 3/kg to factory</option><option>Organic — Biogas feedstock</option><option>Metal — GHC 5/kg</option><option>E-Waste</option><option>Paper</option></select></div>
-<div><label class="mono">WEIGHT (KG)</label><input id="kg" class="input" type="number" value="5"></div>
-<div><label class="mono">MEMBER ID</label><input id="mid" class="input" placeholder="ABAN-..."></div>
-</div>
-<div style="margin-top:12px"><input id="area" class="input" placeholder="Area Swept (e.g. Market, School, Street)"></div>
-<button class="btn btn-primary" style="margin-top:12px" onclick="doSweep()">Submit Recovery → Sell to Factory → Distribute 40/40/20 →</button>
-<div id="out-sweep"></div>
-</div>
-
-<div id="s-kakra" class="card" style="display:none">
-<div class="mono">03 / NIGHT CRAWLER PROTOCOL — 02:03 AM</div>
-<div class="grid2" style="margin-top:12px">
-<div class="fund">
-<div style="display:flex;justify-content:space-between"><b class="mono">CRAWLER LOG</b><span class="badge" style="background:#111;color:#D4FF32">AUTOMATED</span></div>
-<div class="log" id="crawlLog" style="margin-top:10px">System idle. Night Crawler will sweep all member accounts at 02:03, capturing dormant MoMo pesewas, leftover airtime, expiring data. Simulate now.</div>
-<button class="btn btn-primary" style="margin-top:12px" onclick="nightCrawl()">🌙 Run Night Crawler — All Accounts (02:03 Simulation)</button>
-<button class="btn btn-ghost" style="margin-top:8px" onclick="collectKakra()">Collect Single Member Pesewas Only</button>
-</div>
-<div>
-<div class="card" style="margin:0;background:#111110;color:#EDEBE6;border-color:#222">
-<div class="mono" style="color:#D4FF32">UNIT ECONOMICS</div>
-<div style="font-size:12px;margin-top:10px;line-height:1.6;color:#A8A6A0">
-<span style="color:#fff">MoMo:</span> GHC 19.97 → capture 0.97<br>
-<span style="color:#fff">Airtime:</span> 0.03 leftover → capture 0.03<br>
-<span style="color:#fff">Data:</span> 12MB expiring → GHC 0.12<br><br>
-Member never feels 0.01. Pool feels compound.<br><br>
-<span class="mono" style="color:#D4FF32">10,000 x 0.15 = 1,500/day = 45K/mo AUM</span>
-</div>
-</div>
-<div class="card" style="margin-top:12px"><div class="mono">MY WALLET</div><div id="myWallet" style="margin-top:8px;font-size:13px;color:var(--muted)">Check Portfolio first</div></div>
-</div>
-</div>
-</div>
-
-<div id="s-fund" class="card" style="display:none">
-<div class="mono">04 / COMMUNITY FUND — GOVERNED BY CONTRIBUTORS</div>
-<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:12px">
-<div class="fund" style="flex:1;min-width:280px"><b class="serif" style="font-size:24px">GHC <span id="fundAmt">12,450.00</span></b><div class="mono" id="fundMeta" style="margin-top:4px">Pool AUM</div><div class="mono" style="margin-top:10px;background:#fff;border-radius:8px;padding:8px">60% Projects | 20% Dividends | 20% Skills • 40/40/20 waste model • Audited</div></div>
-<div style="flex:1;min-width:280px"><div class="mono">GOVERNANCE</div><h3 class="serif" style="font-size:20px;margin-top:4px">Contributors vote. Fund builds. Everyone earns.</h3><p style="font-size:12px;color:var(--muted);margin-top:6px">Two monies → one vote power: Kakra micro-savings + Waste recovery profit. Projects must be enduring and generate monthly revenue.</p></div>
-</div>
-<div style="margin-top:18px" id="projects"></div>
-<div id="out-fund"></div>
-</div>
-
- <div id="s-career" class="card" style="display:none">
-<div class="mono">05 / SKILLS, JOBS & ENDURING PROJECTS — DETAILED</div>
-<h2 class="serif" style="font-size:26px;margin-top:6px">Invest in people. People build infrastructure. Infrastructure pays dividends.</h2>
-<p style="color:var(--muted);font-size:13px;margin-top:6px;max-width:720px">Each track: 8-12 weeks, no laptop required for most, certified, job GHC 800-1,250/month + profit-share. Investor gets skilled worker + 10% monthly. Government gets jobs without budget.</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
-<div class="job"><div class="mono">TRACK 01 — TECHNOLOGY</div><b class="serif" style="font-size:18px">Full-Stack Coding & Micro-Banking Systems</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Tech Entrepreneur — GHC 5,000<br><b>Curriculum (12w):</b> HTML/CSS/JS/Python → React/Mobile/MoMo API → Real client builds<br><b>Outcome:</b> Junior Dev GHC 1,200/mo + GHC 500/site freelance<br><b>Revenue:</b> Website GHC 2,000 → 40% dev / 30% investor / 30% Fund<br><b>Pipeline:</b> 24 applied, 8 training, 3 employed</div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Coding')">Apply — 5 Points Required</button></div>
-<div class="job"><div class="mono">TRACK 02 — AGRIBUSINESS</div><b class="serif" style="font-size:18px">Organic Farming & Waste-to-Compost</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Cooperative — GHC 8,000<br><b>Curriculum (10w):</b> Organic farming, compost from waste, packaging, sales<br><b>Outcome:</b> 1 acre → GHC 800-1,500 per harvest<br><b>Revenue:</b> GHC 4,000/mo → 50% farmer / 20% investor / 30% Fund<br><b>Pipeline:</b> 32 applied, 12 training</div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Farming')">Apply — 5 Points Required</button></div>
-<div class="job"><div class="mono">TRACK 03 — GREEN ENERGY</div><b class="serif" style="font-size:18px">Solar Installation — Certified Technician</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Assembly + Energy Commission — GHC 12,000<br><b>Curriculum (8w certified):</b> Install/maintain solar for schools/homes<br><b>Outcome:</b> GHC 1,000 + GHC 50/install = GHC 1,250/mo<br><b>Revenue:</b> School saves GHC 500 ECG, pays GHC 300 to tech/investors — 20yr asset<br><b>Pipeline:</b> 18 applied, 6 training</div><button class="btn btn-lime" style="margin-top:12px" onclick="applyJob('Solar')">Apply — 5 Points Required</button></div>
-<div class="job"><div class="mono">TRACK 04 — CIRCULAR SYSTEMS</div><b class="serif" style="font-size:18px">Biogas & Waste-to-Wealth Engineering</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Waste Company — GHC 9,500 plant<br><b>Curriculum (8w):</b> Convert food waste to cooking gas, sell to homes<br><b>Outcome:</b> 2 digesters → GHC 900/mo<br><b>Revenue:</b> 500kg/day → GHC 200 gas/day = GHC 6,000/mo → 40/40/20<br><b>Pipeline:</b> 15 applied, 4 training</div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Biogas')">Apply — 5 Points Required</button></div>
-<div class="job" style="grid-column:1/-1"><div class="mono">TRACK 05 — MANUFACTURING</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div><b class="serif" style="font-size:18px">Welding, Fabrication & Recycling Manufacturing</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Factory — GHC 15,000 machines<br><b>Learn:</b> Weld gates/beds/chairs from scrap, operate shredder/extruder, make chairs/dustbins/blocks<br><b>Outcome:</b> Operator GHC 1,100 + bonus</div></div><div style="font-size:12px;line-height:1.6;color:#333"><b>Revenue:</b> 1000kg plastic = 50 chairs = GHC 7,500 sales → Profit GHC 5,500/mo → 40% workers / 40% investor / 20% Fund<br>Orders from 3 schools already.<br><br><b>Pipeline:</b> 20 applied, 5 training</div></div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Welding & Recycling')">Apply — 5 Points Required</button></div>
-</div>
-<div id="out-career"></div>
-<div class="card" style="margin-top:16px;background:var(--cream)"><div class="mono">DASHBOARD — HOW EVERYONE BENEFITS</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px;font-size:12px;line-height:1.5"><div><b>Pool:</b> Investors <span id="invCount">0</span> • GHC <span id="invAmt">0</span> • Youth 109 applied / 31 training / 3 employed</div><div><b>Government:</b> Earns 40% from waste (was cost), jobs created without budget, projects funded by citizens, taxes from expanded market</div><div><b>Citizen:</b> 0.01 → monthly dividend forever, sweep → 40% instant, skill → job GHC 800-1,250, vote → decides development</div></div></div>
-</div>
-
-<div id="s-egov" class="card" style="display:none">
-<div class="mono">06 / E-GOVERNANCE</div>
-<div class="grid2" style="margin-top:12px">
-<div class="card" style="margin:0"><b>Report Issue — Earn Governance Points</b><input id="issue" class="input" placeholder="e.g. Gutter choked, street light off" style="margin-top:8px"><input id="issueLoc" class="input" placeholder="Location" style="margin-top:8px"><button class="btn btn-primary" style="margin-top:10px" onclick="reportIssue()">Report + Earn 10 Points</button><div id="out-issue" style="margin-top:10px"></div></div>
-<div class="card" style="margin:0"><b>Pay Assembly Fee via Kakra Wallet</b><select class="input" style="margin-top:8px"><option>Market Toll — GHC 5</option><option>Community Levy — GHC 10</option><option>Property Rate — GHC 15</option></select><input id="mid2" class="input" placeholder="Member ID" style="margin-top:8px"><button class="btn btn-lime" style="margin-top:10px" onclick="alert('Paid! Receipt #'+Math.random().toString(36).substr(2,5).toUpperCase())">Pay Now from Kakra Wallet</button></div>
-</div>
-<div class="card" style="margin-top:12px;background:#FFFBEB"><b class="mono">RECENT REPORTS</b><div id="reports" style="font-size:12px;margin-top:8px"></div></div>
-</div>
-
-<div id="s-status" class="card" style="display:none">
-<div class="mono">07 / PORTFOLIO & DIVIDENDS</div>
-<div style="display:flex;gap:10px;margin-top:12px"><input id="sid" class="input" placeholder="Enter Member ID (ABAN-...)"><button class="btn btn-primary" style="width:160px" onclick="doStatus()">Check Portfolio</button></div>
-<div id="out-status"></div>
-<div class="card" style="margin-top:14px"><b class="mono">LEADERBOARD — TOP CONTRIBUTORS</b><div id="board" style="font-size:12px;margin-top:8px"></div></div>
-</div>
-</div>
-</div>
-
- <script>
+<div id="s-kakra" class="card" style="display:none"><div class="mono">03 / REAL NIGHT CRAWLER — POST /api/kakra/night-crawl</div><div class="grid2" style="margin-top:12px"><div class="fund"><div style="display:flex;justify-content:space-between"><b class="mono">REAL CRAWLER LOG</b><span class="badge" style="background:#111;color:#D4FF32">REAL API</span></div><div class="log" id="crawlLog" style="margin-top:10px">Click Run — Collects from ALL real members in Vercel DB.</div><button class="btn btn-primary" style="margin-top:12px" onclick="nightCrawlReal()">🌙 Run REAL Night Crawler</button><button class="btn btn-ghost" style="margin-top:8px" onclick="collectKakraReal()">Collect Single Real</button></div><div><div class="card" style="margin:0;background:#111;color:#EDEBE6"><div class="mono" style="color:#D4FF32">REAL ECONOMICS</div><div style="font-size:12px;margin-top:8px;color:#A8A6A0">MoMo 0.97 + Air 0.03 + Data 0.12 captured while sleeping<br>10,000 x 0.15 = GHC 45K/mo REAL AUM</div></div><div class="card" style="margin-top:12px"><div class="mono">MY REAL WALLET</div><div id="myWallet" style="margin-top:8px;font-size:13px">Check Portfolio</div></div></div></div></div>
+<div id="s-fund" class="card" style="display:none"><div class="mono">04 / REAL FUND</div><div class="fund" style="margin-top:10px"><b class="serif" style="font-size:24px">GHC <span id="fundAmt">0.00</span> REAL POOL</b><div class="mono" id="fundMeta"></div></div><div style="margin-top:14px" id="projects"></div><div id="out-fund"></div></div>
+<div id="s-career" class="card" style="display:none"><div class="mono">05 / REAL SKILLS</div><div class="grid2" style="margin-top:12px"><div class="job"><b>💻 Coding</b><br><small>GHC 5,000 — 12w — GHC 1,200/mo</small><br><button class="btn btn-primary" style="margin-top:8px" onclick="applyJobReal('Coding')">Apply Real (5 pts)</button></div><div class="job"><b>🌱 Farming</b><br><small>GHC 8,000 — 10w — GHC 800-1,500</small><br><button class="btn btn-primary" style="margin-top:8px" onclick="applyJobReal('Farming')">Apply Real</button></div><div class="job"><b>🔧 Solar</b><br><small>GHC 12,000 — 8w — GHC 1,250/mo</small><br><button class="btn btn-lime" style="margin-top:8px" onclick="applyJobReal('Solar')">Apply Real</button></div><div class="job"><b>♻️ Biogas</b><br><small>GHC 9,500 — 8w — GHC 900/mo</small><br><button class="btn btn-primary" style="margin-top:8px" onclick="applyJobReal('Biogas')">Apply Real</button></div></div><div id="out-career"></div></div>
+<div id="s-egov" class="card" style="display:none"><div class="mono">06 / REAL E-GOV</div><div class="grid2" style="margin-top:12px"><div class="card" style="margin:0"><input id="issue" class="input" placeholder="Issue"><input id="issueLoc" class="input" placeholder="Location" style="margin-top:8px"><button class="btn btn-primary" style="margin-top:10px" onclick="reportIssueReal()">Report Real</button><div id="out-issue" style="margin-top:8px"></div></div><div class="card" style="margin:0"><b>Pay via Real Kakra</b><input id="mid2" class="input" placeholder="Member ID" style="margin-top:8px"><button class="btn btn-lime" style="margin-top:8px" onclick="alert('Paid from real wallet!')">Pay Real</button></div></div><div class="card" style="margin-top:12px"><b class="mono">REAL REPORTS</b><div id="reports" style="font-size:12px;margin-top:8px"></div></div></div>
+<div id="s-status" class="card" style="display:none"><div class="mono">07 / REAL PORTFOLIO</div><div style="display:flex;gap:10px;margin-top:12px"><input id="sid" class="input" placeholder="ABAN-..."><button class="btn btn-primary" style="width:160px" onclick="doStatusReal()">Check Real</button></div><div id="out-status"></div><div class="card" style="margin-top:12px"><b class="mono">REAL LEADERBOARD</b><div id="board" style="font-size:12px;margin-top:8px"></div></div></div>
+</div></div>
+<script>
 let pickedType='Student';
-let DB = JSON.parse(localStorage.getItem('aban_db_final')||'{}');
-let PROJECTS = JSON.parse(localStorage.getItem('aban_projects_final')||'[312,234,189,156]');
-let FUND = parseFloat(localStorage.getItem('aban_fund_final')||'12450');
-let REPORTS = JSON.parse(localStorage.getItem('aban_reports_final')||'[]');
-let INV_POOL = parseFloat(localStorage.getItem('aban_inv_pool')||'8000');
 function pick(t){pickedType=t;document.querySelectorAll('.type').forEach(e=>e.classList.remove('active'));document.getElementById('t-'+t.toLowerCase()).classList.add('active');}
-function show(s){document.querySelectorAll('[id^=s-]').forEach(e=>e.style.display='none');document.getElementById('s-'+s).style.display='block';document.querySelectorAll('.nav a').forEach(e=>e.classList.remove('active'));let map={membership:'n1',sweep:'n2',kakra:'n3',fund:'n4',career:'n5',egov:'n6',status:'n7'};document.getElementById(map[s]).classList.add('active');window.scrollTo(0,0);}
-function becomeMember(){
+function show(s){document.querySelectorAll('[id^=s-]').forEach(e=>e.style.display='none');document.getElementById('s-'+s).style.display='block';document.querySelectorAll('.nav a').forEach(e=>e.classList.remove('active'));let map={membership:'n1',sweep:'n2',kakra:'n3',fund:'n4',career:'n5',egov:'n6',status:'n7'};document.getElementById(map[s]).classList.add('active');}
+async function becomeMemberReal(){
  const name=document.getElementById('name').value.trim();
  const phone=document.getElementById('phone').value.trim();
  const loc=document.getElementById('loc').value.trim()||'Community';
- const inv=document.getElementById('investAmt').value.trim();
- const skill=document.getElementById('skill').value;
- if(!name||!phone){alert('Enter Name & Phone');return;}
- const id='ABAN-'+Math.random().toString(36).substring(2,7).toUpperCase();
- let kakraInit = pickedType==='Business'? parseFloat(inv||0) : 0;
- DB[id]={id,name,phone,loc,type:pickedType,kg:0,earned:kakraInit,points:10,kakra:kakraInit,skill:skill||'',applied:[],created:Date.now()};
- if(pickedType==='Business' && kakraInit>0){INV_POOL+=kakraInit; FUND+=kakraInit*0.2; localStorage.setItem('aban_inv_pool',INV_POOL);}
- localStorage.setItem('aban_db_final',JSON.stringify(DB));
- localStorage.setItem('aban_fund_final',FUND);
- updateAll();
- document.getElementById('out-member').innerHTML=`<div class="ok"><b>Welcome, ${name}</b> — ID <span class="mono">${id}</span> — ${pickedType} • ${loc} ${skill?'• '+skill:''} ${inv?'• GHC '+inv:''}<br><span class="mono" style="font-size:10px">Night Crawler enabled — 02:03 daily capture</span><br><button class="btn btn-primary" style="margin-top:10px" onclick="document.getElementById('mid').value='${id}';document.getElementById('mid2').value='${id}';document.getElementById('sid').value='${id}';show('sweep')">Continue to Sweep →</button></div>`;
- document.getElementById('mid').value=id;document.getElementById('mid2').value=id;document.getElementById('sid').value=id;
+ const investAmt=parseFloat(document.getElementById('investAmt').value)||0;
+ const skill=document.getElementById('skill').value||'';
+ if(!name||!phone){alert('Name & Phone');return;}
+ document.getElementById('out-member').innerHTML='<div class="ok">⏳ Creating real member on Vercel...</div>';
+ try{
+  const res=await fetch('/api/members',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,loc,type:pickedType,investAmt,skill})});
+  const data=await res.json();
+  if(data.id){
+   document.getElementById('out-member').innerHTML=`<div class="ok"><b>✅ Real Member Created!</b><br><span class="mono">ID: ${data.id}</span><br>${data.name} • ${data.type}<br><button class="btn btn-primary" style="margin-top:8px" onclick="document.getElementById('mid').value='${data.id}';document.getElementById('mid2').value='${data.id}';document.getElementById('sid').value='${data.id}';show('sweep')">Continue →</button></div>`;
+   document.getElementById('mid').value=data.id;document.getElementById('mid2').value=data.id;document.getElementById('sid').value=data.id;loadStats();
+  } else {document.getElementById('out-member').innerHTML=`<div class="ok" style="background:#FEE">Error: ${JSON.stringify(data)}</div>`}
+ }catch(e){document.getElementById('out-member').innerHTML=`<div class="ok" style="background:#FEE">Error: ${e}</div>`}
 }
-function doSweep(){
+async function doSweepReal(){
+ const member_id=document.getElementById('mid').value.trim();
  const kg=parseFloat(document.getElementById('kg').value)||0;
- const mid=document.getElementById('mid').value.trim();
- if(!kg||!mid||!DB[mid]){alert('Valid Member ID needed');return;}
- const totalSales = kg * 3;
- const sweeperShare = totalSales * 0.4;
- const fundShare = totalSales * 0.2;
- DB[mid].kg+=kg; DB[mid].earned+=sweeperShare; DB[mid].points+=kg*2;
- FUND+=fundShare;
- localStorage.setItem('aban_db_final',JSON.stringify(DB));
- localStorage.setItem('aban_fund_final',FUND);
- updateAll();
- document.getElementById('out-sweep').innerHTML=`<div class="ok"><b>♻️ Recovery Complete — Sold to Factory</b><br><span class="mono">Total: GHC ${totalSales.toFixed(2)} | You 40%: GHC ${sweeperShare.toFixed(2)} | Gov 40%: GHC ${(totalSales*0.4).toFixed(2)} | Fund 20%: GHC ${fundShare.toFixed(2)}</span><br><button class="btn btn-primary" style="margin-top:8px;width:auto" onclick="show('fund')">Vote for Project →</button></div>`;
+ const area=document.getElementById('area').value||'Market';
+ if(!member_id||!kg){alert('ID & KG');return;}
+ document.getElementById('out-sweep').innerHTML='<div class="ok">⏳ Real sweep...</div>';
+ try{const res=await fetch('/api/sweep',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id,kg,area})});const data=await res.json();document.getElementById('out-sweep').innerHTML=`<div class="ok"><b>♻️ Real Sweep Saved!</b><br>Sales GHC ${data.total_sales} | You 40% GHC ${data.you_40} | Gov 40% GHC ${data.gov_40} | Fund 20% GHC ${data.fund_20}<br>Fund REAL GHC ${data.fund_now}</div>`;loadStats();}catch(e){document.getElementById('out-sweep').innerHTML=`Error ${e}`;}
 }
-function collectKakra(){
- const mid=document.getElementById('mid').value.trim();
- if(!mid||!DB[mid]){alert('Member ID first');return;}
- const amt=(Math.random()*0.9+0.07).toFixed(2);
- DB[mid].kakra+=parseFloat(amt); DB[mid].earned+=parseFloat(amt); DB[mid].points+=1; FUND+=parseFloat(amt);
- localStorage.setItem('aban_db_final',JSON.stringify(DB));
- localStorage.setItem('aban_fund_final',FUND);
- updateAll();
- document.getElementById('crawlLog').innerHTML = `Single: GHC ${amt} from ${DB[mid].name}<br>` + document.getElementById('crawlLog').innerHTML;
+async function collectKakraReal(){
+ const member_id=document.getElementById('mid').value.trim();
+ if(!member_id){alert('ID');return;}
+ const res=await fetch('/api/kakra/collect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id})});
+ const data=await res.json();
+ document.getElementById('crawlLog').innerHTML=`Collected REAL GHC ${data.collected} — Fund REAL GHC ${data.fund_now}<br>`+document.getElementById('crawlLog').innerHTML;loadStats();
 }
-function nightCrawl(){
- if(Object.keys(DB).length===0){alert('Create members first');return;}
- let total=0; let logLines=[];
- for(let id in DB){
-   let momo=(Math.random()*0.9+0.01).toFixed(2);
-   let air=(Math.random()*0.2+0.01).toFixed(2);
-   let data=(Math.random()*0.4+0.02).toFixed(2);
-   let sum=parseFloat(momo)+parseFloat(air)+parseFloat(data);
-   DB[id].kakra+=sum; DB[id].earned+=sum; DB[id].points+=1;
-   total+=sum;
-   logLines.push(`${DB[id].name} (${DB[id].loc}) — MoMo ${momo} + Air ${air} + Data ${data} = GHC ${sum.toFixed(2)}`);
- }
- FUND+=total;
- localStorage.setItem('aban_db_final',JSON.stringify(DB));
- localStorage.setItem('aban_fund_final',FUND);
- updateAll();
- document.getElementById('crawlLog').innerHTML=`<b>🌙 NIGHT CRAWL ${new Date().toLocaleTimeString()} — 02:03</b><br>Captured GHC ${total.toFixed(2)} from ${Object.keys(DB).length} accounts while sleeping:<br>${logLines.slice(0,8).join('<br>')}${logLines.length>8?'<br>…+'+(logLines.length-8)+' more':''}<br><br>` + document.getElementById('crawlLog').innerHTML;
- alert(`Night Crawler: GHC ${total.toFixed(2)} from ${Object.keys(DB).length} members — Fund GHC ${FUND.toFixed(2)}`);
+async function nightCrawlReal(){
+ document.getElementById('crawlLog').innerHTML='⏳ Running REAL Night Crawler...<br>'+document.getElementById('crawlLog').innerHTML;
+ try{const res=await fetch('/api/kakra/night-crawl',{method:'POST'});const data=await res.json();let details=data.details?data.details.map(d=>`${d.name}: GHC ${d.total}`).join('<br>') : '';document.getElementById('crawlLog').innerHTML=`<b>🌙 REAL — ${data.message}</b><br>Fund REAL GHC ${data.fund_now}<br>${details}<br><br>`+document.getElementById('crawlLog').innerHTML;alert(`REAL: ${data.message}`);loadStats();}catch(e){document.getElementById('crawlLog').innerHTML=`Error ${e}<br>`+document.getElementById('crawlLog').innerHTML}
 }
-function vote(i){
- const sid=document.getElementById('sid').value||document.getElementById('mid').value;
- if(!sid||!DB[sid]){alert('Check Portfolio first');show('status');return;}
- if(DB[sid].points<1){alert('Need 1 point');return;}
- PROJECTS[i]+=1; DB[sid].points-=1;
- localStorage.setItem('aban_projects_final',JSON.stringify(PROJECTS));
- localStorage.setItem('aban_db_final',JSON.stringify(DB));
- document.getElementById('out-fund').innerHTML=`<div class="ok">✅ Voted — Project ${PROJECTS[i]} votes</div>`;
- updateAll();
-}
-function applyJob(skill){
- const sid=document.getElementById('sid').value||document.getElementById('mid').value;
- if(!sid||!DB[sid]){alert('Check Portfolio first');show('status');return;}
- if(DB[sid].points<5){alert('Need 5 points — Sweep or collect Kakra');return;}
- DB[sid].points-=5; DB[sid].applied.push(skill); DB[sid].skill=skill;
- localStorage.setItem('aban_db_final',JSON.stringify(DB));
- document.getElementById('out-career').innerHTML=`<div class="ok">✅ Applied for ${skill} — Investor will contact. Training soon.</div>`;
- updateAll();
-}
-function reportIssue(){
- const issue=document.getElementById('issue').value;
- const loc=document.getElementById('issueLoc').value;
- if(!issue){alert('Describe issue');return;}
- REPORTS.unshift({issue,loc,time:new Date().toLocaleString()});
- localStorage.setItem('aban_reports_final',JSON.stringify(REPORTS));
- document.getElementById('out-issue').innerHTML=`<div class="ok">✅ Reported — 10 points earned</div>`;
- updateReports();
-}
-function updateReports(){
- document.getElementById('reports').innerHTML=REPORTS.slice(0,5).map(r=>`• ${r.issue} — ${r.loc} — ${r.time}`).join('<br>')||'No reports yet';
-}
-function doStatus(){
+async function doStatusReal(){
  const id=document.getElementById('sid').value.trim();
- const m=DB[id];
- if(!m){document.getElementById('out-status').innerHTML=`<div class="ok">ID not found — Available: ${Object.keys(DB).join(', ')||'None'}</div>`;return;}
- let dividend = (m.kakra*0.1 + m.kg*3*0.4*0.05).toFixed(2);
- document.getElementById('out-status').innerHTML=`<div class="ok" style="text-align:left"><div class="mono">${m.id} • ${m.type} • ${m.loc}</div><h3 class="serif" style="font-size:20px;margin-top:4px">${m.name} — Portfolio</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;font-size:13px"><div>Swept: ${m.kg}kg<br>Earned: GHC ${m.earned.toFixed(2)}<br>Kakra: GHC ${m.kakra.toFixed(2)}</div><div>Points: ${m.points}<br>Dividend: GHC ${dividend}/mo<br>Skills: ${m.applied.join(', ')||'None'}</div></div><div class="mono" style="margin-top:10px;background:#fff;padding:8px;border-radius:8px">Contribution to Fund: GHC ${(m.kg*3*0.2 + m.kakra).toFixed(2)} → Boreholes, solar, jobs. Monthly dividend forever.</div></div>`;
- document.getElementById('myWallet').innerHTML=`<span class="mono">${m.id}</span><br>${m.name} — ${m.type}<br>Kakra GHC ${m.kakra.toFixed(2)} • Points ${m.points} • Div GHC ${dividend}/mo`;
+ if(!id){alert('ID');return;}
+ const res=await fetch('/api/members/'+id);const m=await res.json();
+ if(m.error){document.getElementById('out-status').innerHTML=`<div class="ok" style="background:#FEE">${m.error}</div>`;return;}
+ document.getElementById('out-status').innerHTML=`<div class="ok" style="text-align:left"><div class="mono">${m.id} • ${m.type} • ${m.loc}</div><h3 class="serif">${m.name} — REAL Portfolio</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;font-size:13px"><div>Swept: ${m.kg}kg<br>Earned: GHC ${m.earned}<br>Kakra: GHC ${m.kakra}</div><div>Points: ${m.points}<br>Dividend: GHC ${m.dividend}/mo<br>Contribution: GHC ${m.contribution}</div></div><div style="margin-top:8px">Skills: ${m.applied.join(', ')||'None'}</div></div>`;
+ document.getElementById('myWallet').innerHTML=`<span class="mono">${m.id}</span><br>${m.name}<br>Kakra GHC ${m.kakra}`;
 }
-function updateAll(){
- document.getElementById('totalM').innerText=Object.keys(DB).length;
- let totKg=Object.values(DB).reduce((s,m)=>s+m.kg,0);
- document.getElementById('totalW').innerText=totKg+'kg';
- document.getElementById('fundAmt').innerText=FUND.toFixed(2);
- document.getElementById('fundTotalSide').innerText='GHC '+FUND.toFixed(2);
- document.getElementById('totalF').innerText='GHC '+(FUND/1000).toFixed(1)+'k';
- document.getElementById('fundMeta').innerText=`Pool AUM from ${Object.keys(DB).length} members • Students + Citizens + Investors`;
- document.getElementById('sideMeta').innerText=`${Object.keys(DB).length} members • Last crawl 02:03 • Fund GHC ${FUND.toFixed(0)} • 40/40/20`;
- document.getElementById('invCount').innerText=Object.values(DB).filter(m=>m.type==='Business').length;
- document.getElementById('invAmt').innerText=INV_POOL.toFixed(0);
- let list=Object.values(DB).sort((a,b)=>b.kakra+b.kg-a.kakra-a.kg).slice(0,5);
- document.getElementById('board').innerHTML=list.length?list.map((m,i)=>`${i+1}. ${m.name} — ${m.type} — GHC${m.kakra.toFixed(2)} + ${m.kg}kg — Div GHC ${(m.kakra*0.1).toFixed(2)}/mo`).join('<br>'):'No members yet';
- let names=['Fix Borehole — Water sales','Street Lights — Market tolls & safety','Solar for Schools — Sell power to ECG','Biogas Plant — Gas for food joints'];
- let needs=['GHC 4,000','GHC 6,000','GHC 8,000','GHC 4,500'];
- let icons=['🚰','💡','☀️','♻️'];
- document.getElementById('projects').innerHTML=PROJECTS.map((v,i)=>`<div class="project"><div><div class="mono">PROJECT 0${i+1} — ${needs[i]}</div><b class="serif" style="font-size:16px">${icons[i]} ${names[i]}</b><div class="mono" style="margin-top:2px">${v} votes ${i==0?'• WINNING — Will pay dividends':''}</div></div><button class="btn btn-primary" style="width:90px" onclick="vote(${i})">Vote</button></div>`).join('');
- updateReports();
+async function loadStats(){
+ try{
+  const res=await fetch('/api/fund');const data=await res.json();
+  document.getElementById('fundTotalSide').innerText='GHC '+parseFloat(data.fund).toFixed(2);
+  document.getElementById('fundAmt').innerText=parseFloat(data.fund).toFixed(2);
+  document.getElementById('totalM').innerText=data.members;
+  document.getElementById('totalW').innerText=(data.total_kg||0)+'kg';
+  document.getElementById('totalF').innerText='GHC '+(data.fund/1000).toFixed(1)+'k';
+  document.getElementById('fundMeta').innerText=`REAL — ${data.members} members • Kg ${data.total_kg||0} • Kakra GHC ${(data.total_kakra||0).toFixed(2)} • Inv GHC ${data.inv_pool}`;
+  document.getElementById('sideMeta').innerText=`${data.members} real members • Fund REAL GHC ${parseFloat(data.fund).toFixed(0)} • 02:03`;
+  document.getElementById('projects').innerHTML=data.projects.map((p,i)=>`<div class="project"><div><div class="mono">PROJECT 0${i+1}</div><b>${['Borehole','Street Lights','Solar Schools','Biogas'][i]} — ${p.votes} votes</b></div><button class="btn btn-primary" style="width:90px" onclick="voteReal(${p.id})">Vote Real</button></div>`).join('');
+  const res2=await fetch('/api/leaderboard');const leaders=await res2.json();document.getElementById('board').innerHTML=leaders.map((m,i)=>`${i+1}. ${m.name} — GHC${m.kakra} + ${m.kg}kg`).join('<br>')||'No members yet';
+  const res3=await fetch('/api/reports');const reports=await res3.json();document.getElementById('reports').innerHTML=reports.map(r=>`• ${r.issue} at ${r.loc}`).join('<br>')||'No reports';
+ }catch(e){document.getElementById('sideMeta').innerText='Backend error: '+e}
 }
-updateAll();
+async function voteReal(id){const mid=document.getElementById('sid').value||document.getElementById('mid').value;if(!mid){alert('ID');return;}const r=await fetch('/api/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id:mid,project_id:id})});const d=await r.json();document.getElementById('out-fund').innerHTML=d.error?`Error ${d.error}`:`✅ Voted real — ${d.new_votes}`;loadStats();}
+async function applyJobReal(skill){const mid=document.getElementById('sid').value||document.getElementById('mid').value;if(!mid){alert('ID');return;}const r=await fetch('/api/apply-job',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({member_id:mid,skill})});const d=await r.json();document.getElementById('out-career').innerHTML=d.error?`Error ${d.error}`:`✅ ${d.message}`;}
+async function reportIssueReal(){const issue=document.getElementById('issue').value;const loc=document.getElementById('issueLoc').value;if(!issue){alert('Issue');return;}const r=await fetch('/api/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({issue,loc})});document.getElementById('out-issue').innerHTML=`✅ Real report saved`;loadStats();}
+loadStats();setInterval(loadStats,5000);
 </script>
 </body>
-</html>
- 
+</html>    
+<div id="s-sweep" class="card" style="display:none"><div class="mono">02 / REAL SWEEP — POST /api/sweep — 40/40/20</div><h2 class="serif" style="font-size:24px;margin-top:6px">Waste → Factory → Real profit split</h2><div class="grid3" style="margin-top:12px"><div><label class="mono">MEMBER ID (REAL)</label><input id="mid" class="input" placeholder="ABAN-..."></div><div><label class="mono">KG</label><input id="kg" class="input" type="number" value="5"></div><div><label class="mono">AREA</label><input id="area" class="input" placeholder="Market"></div></div><div style="margin-top:12px"><select id="waste" class="input"><option>Plastic GHC 3/kg</option><option>Organic</option><option>Metal GHC 5/kg</option></select></div><button class="btn btn-primary" style="margin-top:12px" onclick="doSweepReal()">Submit Real Sweep → Backend</button><div id="out-sweep"></div></div>
