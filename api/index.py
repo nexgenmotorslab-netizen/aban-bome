@@ -5,11 +5,9 @@ from typing import Optional
 import sqlite3, os, random, time, json
 from datetime import datetime
 
-app = FastAPI(title="ABAN BOME Real Backend")
-
+app = FastAPI(title="ABAN BOME Real Backend - Micro-Bank at Your Doorstep")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
-
-DB_PATH = "aban_real.db"
+DB_PATH = "/tmp/aban_real.db"
 
 def get_db():
     conn = sqlite3.connect(DB_PATH)
@@ -66,7 +64,11 @@ class ReportIn(BaseModel):
 
 @app.get("/")
 def root():
-    return {"status":"ABAN BOME Real Backend Live","time": datetime.now().isoformat()}
+    return {"status":"ABAN BOME Real Backend Live","docs":"/docs","fund":"/api/fund"}
+
+@app.get("/api/docs")
+def docs():
+    return {"message":"Use /docs for Swagger"}
 
 @app.post("/api/members")
 def create_member(m: MemberIn):
@@ -161,7 +163,7 @@ def night_crawl():
         summ = round(momo+air+data,2)
         total+=summ
         c.execute("UPDATE members SET kakra=kakra+?, earned=earned+?, points=points+1 WHERE id=?", (summ, summ, mm["id"]))
-        logs.append({"name":mm["name"],"loc":mm["loc"],"momo":momo,"air":air,"data":data,"total":summ})
+        logs.append({"name":mm["name"],"loc":mm["loc"],"total":summ})
     c.execute("UPDATE fund SET amount=amount+? WHERE id=1", (total,))
     c.execute("SELECT amount FROM fund WHERE id=1")
     fund_amt = c.fetchone()["amount"]
@@ -181,15 +183,6 @@ def get_fund():
     projects = [dict(r) for r in c.fetchall()]
     conn.close()
     return {"fund":fund["amount"],"inv_pool":fund["inv_pool"],"members":cnt or 0,"total_kg":sumkg or 0,"total_kakra":sumkakra or 0,"projects":projects}
-
-@app.get("/api/projects")
-def get_projects():
-    conn=get_db()
-    c=conn.cursor()
-    c.execute("SELECT * FROM projects ORDER BY id")
-    rows=[dict(r) for r in c.fetchall()]
-    conn.close()
-    return rows
 
 @app.post("/api/vote")
 def vote(v: VoteIn):
@@ -250,14 +243,3 @@ def leaderboard():
     rows=[dict(r) for r in c.fetchall()]
     conn.close()
     return rows
-
-@app.get("/api/stats")
-def stats():
-    conn=get_db()
-    c=conn.cursor()
-    c.execute("SELECT COUNT(*), SUM(kg), SUM(kakra) FROM members")
-    cnt, kg, kakra = c.fetchone()
-    c.execute("SELECT amount, inv_pool FROM fund WHERE id=1")
-    fund_row = c.fetchone()
-    conn.close()
-    return {"members": cnt or 0, "total_kg": kg or 0, "total_kakra": round(kakra or 0,2), "fund": fund_row["amount"], "inv_pool": fund_row["inv_pool"]}
