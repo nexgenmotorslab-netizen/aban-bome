@@ -4,210 +4,80 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABAN BOME 3-in-1 | Government at Your Doorstep</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{display:flex;background:#f5f7f5;min-height:100vh}
-.sidebar{width:260px;background:#0f2d1f;color:white;display:flex;flex-direction:column;position:fixed;height:100vh;overflow-y:auto;z-index:10}
-.logo-area{background:white;color:#0f2d1f;padding:16px 18px;display:flex;align-items:center;gap:10px;border-radius:0 0 12px 0}
-.logo-icon{width:38px;height:38px;background:#0f5c2e;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px}
-.logo-area h1{font-size:16px;line-height:1.1;font-weight:800}
-.logo-area p{font-size:10px;opacity:0.7}
-.menu{padding:14px 10px;flex:1}
-.menu-section{font-size:9px;letter-spacing:1px;opacity:0.5;margin:18px 10px 8px;text-transform:uppercase;font-weight:600}
-.menu-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:#c7d5cc;transition:0.2s;text-decoration:none}
-.menu-item:hover{background:#1a3d2a;color:white}
-.menu-item.active{background:#1a5c2e;color:white;border-left:3px solid #4ade80}
-.menu-item svg{width:18px;height:18px;opacity:0.8}
-.main{margin-left:260px;flex:1;min-height:100vh;display:flex;flex-direction:column}
-.topbar{background:white;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:5}
-.user-area{display:flex;align-items:center;gap:14px}
-.avatar{width:36px;height:36px;background:#e2e8f0;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.content{padding:20px 24px;max-width:1200px;width:100%;margin:0 auto}
-.banner{background:linear-gradient(90deg,#0f2d1f 0%,#1a4d2e 55%,rgba(15,45,31,0.3) 100%),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200');background-size:cover;background-position:center;border-radius:16px;padding:28px 32px;color:white;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden}
-.banner-logo{background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border-radius:12px;padding:12px 16px;text-align:center;min-width:130px;border:1px solid rgba(255,255,255,0.15)}
-.banner h2{font-size:22px;font-weight:700}
-.banner h2 span{color:#facc15;font-size:15px;font-weight:500;display:block;margin-top:4px}
-.banner p{font-size:12px;opacity:0.85;margin-top:8px;max-width:480px;line-height:1.5}
-.card{background:white;border-radius:12px;border:1px solid #e5e7eb;margin-top:18px;overflow:hidden}
-.card-header{padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #f1f5f9}
-.card-header .icon{width:36px;height:36px;background:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white}
-.card-header h3{font-size:14px;font-weight:600}
-.card-header p{font-size:11px;color:#64748b}
-.steps{display:flex;justify-content:space-between;padding:18px 20px;gap:12px}
-.step{text-align:center;flex:1;position:relative}
-.step-num{width:32px;height:32px;border-radius:50%;background:#f1f5f9;color:#64748b;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:13px;font-weight:600;border:1px solid #e2e8f0}
-.step.active .step-num{background:#16a34a;color:white;border-color:#16a34a}
-.step p{font-size:11px;font-weight:600}
-.step span{font-size:10px;color:#94a3b8;display:block}
-.info-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;margin:0 20px;display:flex;gap:10px;font-size:12px;color:#166534}
-.membership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:16px 20px}
-.m-card{border:1px solid #e5e7eb;border-radius:10px;padding:16px;background:#f9fafb;transition:0.2s}
-.m-card:hover{border-color:#16a34a;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-.m-card.green{background:#f0fdf4;border-color:#bbf7d0}
-.m-card.blue{background:#eff6ff;border-color:#bfdbfe}
-.m-card.yellow{background:#fefce8;border-color:#fde68a}
-.m-head{display:flex;gap:10px;margin-bottom:10px}
-.m-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:18px}
-.m-card.green .m-icon{background:#16a34a}
-.m-card.blue .m-icon{background:#2563eb}
-.m-card.yellow .m-icon{background:#d97706}
-.m-card h4{font-size:13px;font-weight:700}
-.m-card p{font-size:11px;color:#64748b;margin-top:2px;line-height:1.4}
-.select-btn{margin-top:12px;width:100%;padding:8px;border-radius:20px;border:1px solid #cbd5e1;background:white;font-size:11px;font-weight:600;cursor:pointer}
-.m-card.green .select-btn{border-color:#16a34a;color:#166534}
-.m-card.blue .select-btn{border-color:#2563eb;color:#1e40af}
-.m-card.yellow .select-btn{border-color:#d97706;color:#92400e}
-.form-area{padding:16px 20px;display:none}
-.form-area.active{display:block}
-.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.input-group label{font-size:11px;font-weight:600;color:#334155;display:block;margin-bottom:4px}
-.input-group input,.input-group select{width:100%;padding:9px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:12px}
-.btn-primary{background:#16a34a;color:white;border:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:12px;cursor:pointer;width:100%;margin-top:14px}
-.btn-primary:hover{background:#15803d}
-.collapse{padding:12px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;border-top:1px solid #f1f5f9}
-.collapse:hover{background:#f8fafc}
-.result-box{padding:12px;background:#f8fafc;border-radius:8px;margin-top:10px;font-size:12px;white-space:pre-wrap}
-.footer{margin-top:auto;padding:12px 24px;font-size:10px;color:#94a3b8;display:flex;justify-content:space-between;border-top:1px solid #e5e7eb;background:white}
-@media(max-width:900px){.sidebar{display:none}.main{margin-left:0}.membership-grid{grid-template-columns:1fr}.input-grid{grid-template-columns:1fr}.banner{flex-direction:column;align-items:flex-start}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial}
+body{background:#F5F7F6;color:#1A1A1A}
+.sidebar{position:fixed;left:0;top:0;width:260px;height:100vh;background:#0F2E1F;color:white;padding:20px;z-index:10}
+.sidebar h2{color:#FACC15;font-size:22px}
+.nav a{display:block;padding:12px 14px;margin:6px 0;border-radius:10px;color:#CBD5E1;text-decoration:none;cursor:pointer}
+.nav a.active,.nav a:hover{background:#16412C;color:white}
+.main{margin-left:260px;padding:24px}
+.top-banner{background:linear-gradient(135deg,#0F2E1F,#16412C);color:white;border-radius:18px;padding:24px;display:flex;justify-content:space-between;align-items:center}
+.btn{padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.btn-green{background:#16A34A;color:white}
+.btn-dark{background:#0F2E1F;color:white}
+.card{background:white;border-radius:16px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin:16px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.type-card{border:2px solid #E5E7EB;border-radius:14px;padding:16px;text-align:center;cursor:pointer}
+.type-card.selected{border-color:#16A34A;background:#F0FDF4}
+.input{width:100%;padding:12px;border:1px solid #D1D5DB;border-radius:10px;margin:8px 0}
+.success-box{background:#F0FDF4;border:2px solid #16A34A;padding:18px;border-radius:12px;text-align:center;margin-top:12px}
+@media(max-width:900px){.sidebar{width:100%;height:auto;position:relative}.main{margin-left:0}.grid3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="sidebar">
-<div class="logo-area">
-<div class="logo-icon">🏠</div>
-<div><h1>ABAN BOME 3-in-1</h1><p>Government at Your Doorstep</p></div>
+<h2>ABAN BOME<br>3-in-1</h2>
+<p>Government at Your Doorstep<br>Sulley Fouard | Adonten SHS x Openlabs</p>
+<div class="nav">
+<a class="active" onclick="showSection('membership')">🏠 1. Become Member</a>
+<a onclick="showSection('sweep')">♻️ 2. Kakra Sweep + H4G</a>
+<a onclick="showSection('status')">📊 3. View Status & Rewards</a>
 </div>
-<div class="menu">
-<div class="menu-item active">🏠 Dashboard</div>
-<div class="menu-section">Membership</div>
-<div class="menu-item active">👤+ Become Member (3-in-1)</div>
-<div class="menu-item">📋 Check Application Status</div>
-<div class="menu-item">👤 My Membership</div>
-<div class="menu-section">Services</div>
-<div class="menu-item">👥 Community Services</div>
-<div class="menu-item">📢 Announcements</div>
-<div class="menu-item">📅 Events</div>
-<div class="menu-section">Support</div>
-<div class="menu-item">❓ Help Center</div>
-<div class="menu-item">📞 Contact Us</div>
-<div class="menu-item">💬 Feedback</div>
 </div>
-<div style="padding:12px"><div style="background:#142f21;border-radius:10px;padding:12px;display:flex;gap:10px"><div style="background:#1e4d2b;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center">🎧</div><div><p style="font-size:11px;font-weight:600">Need Help?</p><p style="font-size:10px;opacity:0.6">We are here to assist you</p></div></div></div>
-</div>
-
 <div class="main">
-<div class="topbar">
-<div>☰</div>
-<div class="user-area"><span>🔔</span><div class="avatar">👤</div><div style="font-size:11px"><p style="color:#64748b">Welcome,</p><p style="font-weight:700">Guest User ▼</p></div></div>
+<div class="top-banner">
+<div><h1>Welcome to ABAN BOME 3-in-1</h1><p style="color:#A7F3D0">One Platform, One Ghana</p></div>
+<div style="text-align:right"><div style="color:#FACC15">LIVE</div><div style="font-size:22px;font-weight:800">1,247 Members</div></div>
 </div>
 
-<div class="content">
-<div class="banner">
-<div class="banner-logo"><div style="font-size:34px">👨‍👩‍👧‍👦</div><div style="font-size:13px;font-weight:800;margin-top:4px">ABAN BOME<br><span style="color:#facc15">3-in-1</span></div></div>
-<div><h2>Welcome to ABAN BOME 3-in-1 <span>Government at Your Doorstep</span></h2><p>Join as a Student, Business, or Community Member and enjoy exclusive benefits and services tailored for you. Kakra Sweep • Governance • Skills.</p></div>
+<div id="sec-membership" class="card">
+<h3>1. Choose Membership Type & Register</h3>
+<div class="grid3" style="margin-top:14px">
+<div class="type-card selected" id="card-student" onclick="selectType('Student')"><div style="font-size:28px">🎓</div><b>Student</b><p style="font-size:12px">Adonten SHS</p><button class="btn btn-green" style="margin-top:10px;width:100%">Select Student</button></div>
+<div class="type-card" id="card-business" onclick="selectType('Business')"><div style="font-size:28px">🏪</div><b>Business</b><p style="font-size:12px">Shop Owner</p><button class="btn btn-dark" style="margin-top:10px;width:100%">Select Business</button></div>
+<div class="type-card" id="card-community" onclick="selectType('Community')"><div style="font-size:28px">👥</div><b>Community</b><p style="font-size:12px">Resident</p><button class="btn" style="margin-top:10px;width:100%;background:#FACC15">Select Community</button></div>
+</div>
+<input id="name" class="input" placeholder="Full Name * e.g. Sulley Fouard">
+<div style="display:flex;gap:12px"><input id="phone" class="input" placeholder="Phone *"><input id="location" class="input" placeholder="Location * Aburi"></div>
+<p style="font-size:12px">Type: <b id="typeLabel">Student</b></p>
+<button class="btn btn-green" style="width:100%;margin-top:10px" onclick="register()">Create Membership + Join 3-in-1 →</button>
+<div id="memberIdDisplay"></div>
 </div>
 
-<div class="card" id="member-card">
-<div class="card-header"><div class="icon">👤+</div><div><h3>1. Become Member (Student or Business)</h3><p>Fill in the form below to create your membership profile.</p></div></div>
-<div class="steps"><div class="step active"><div class="step-num">1</div><p>Membership Type</p><span>Select your category</span></div><div class="step"><div class="step-num">2</div><p>Personal / Business Info</p><span>Provide your details</span></div><div class="step"><div class="step-num">3</div><p>Review & Submit</p><span>Confirm and submit</span></div></div>
-<div class="info-box">ℹ️ Choose the type of membership that best describes you. You can always update your information later.</div>
-<div class="membership-grid">
-<div class="m-card green"><div class="m-head"><div class="m-icon">🎓</div><div><h4>Student Member</h4><p>For students in senior high, tertiary, or vocational institutions.</p></div></div><button class="select-btn" onclick="selectType('Student')">Select Student</button></div>
-<div class="m-card blue"><div class="m-head"><div class="m-icon">💼</div><div><h4>Business Member</h4><p>For business owners and entrepreneurs.</p></div></div><button class="select-btn" onclick="selectType('Business')">Select Business</button></div>
-<div class="m-card yellow"><div class="m-head"><div class="m-icon">👥</div><div><h4>Community Member</h4><p>For individuals who want to participate in community development.</p></div></div><button class="select-btn" onclick="selectType('Community')">Select Community</button></div>
-</div>
-<div class="form-area" id="form-area">
-<div class="input-grid">
-<div class="input-group"><label>Full Name *</label><input id="name" placeholder="Enter your full name"></div>
-<div class="input-group"><label>Phone Number *</label><input id="phone" placeholder="0XX XXX XXXX"></div>
-<div class="input-group"><label>Location (Accra, Kumasi...)*</label><input id="location" placeholder="Your community"></div>
-<div class="input-group"><label>Membership Type</label><input id="typeDisplay" readonly style="background:#f1f5f9"></div>
-</div>
-<button class="btn-primary" onclick="register()">Create Membership + Join 3-in-1 →</button>
-<div id="regResult" class="result-box" style="display:none"></div>
-</div>
+<div id="sec-sweep" class="card" style="display:none">
+<h3>2. Kakra Sweep + Governance Score</h3>
+<select id="wasteType" class="input"><option>Plastic</option><option>Organic</option><option>Metal</option></select>
+<input id="weight" class="input" type="number" placeholder="Weight kg" value="5">
+<input id="area" class="input" placeholder="Area e.g. Aburi" value="Aburi">
+<input id="memberId" class="input" placeholder="Your Member ID">
+<button class="btn btn-green" style="width:100%" onclick="sweep()">Submit Sweep & Earn ¢ + Score</button>
+<div id="sweepResult"></div>
 </div>
 
-<div class="card">
-<div class="collapse" onclick="toggleCollapse('kakra')"><div style="display:flex;gap:10px;align-items:center"><div style="background:#dcfce7;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px">🗑️</div><h3 style="font-size:13px">2. Kakra Sweep + Governance Score (H4G) - The Core</h3></div><span id="kakra-arrow">▼</span></div>
-<div class="form-area active" id="kakra-area" style="display:block">
-<div class="input-grid">
-<div class="input-group"><label>Waste Type (Borla)</label><select id="wasteType"><option>Plastic</option><option>Organic</option><option>Mixed</option><option>E-Waste</option></select></div>
-<div class="input-group"><label>Weight (kg) *</label><input id="weight" type="number" placeholder="e.g. 5"></div>
-<div class="input-group"><label>Area Swept *</label><input id="area" placeholder="e.g. Nima, Accra"></div>
-<div class="input-group"><label>Your Member ID</label><input id="memberId" placeholder="Paste ID after registration"></div>
-</div>
-<button class="btn-primary" onclick="sweep()">Submit Sweep & Earn ₵ + Score</button>
-<div id="sweepResult" class="result-box" style="display:none"></div>
+<div id="sec-status" class="card" style="display:none">
+<h3>3. View Status & Rewards</h3>
+<div style="display:flex;gap:12px"><input id="statusId" class="input" placeholder="Enter Member ID"><button class="btn btn-dark" onclick="checkStatus()">Check Status</button></div>
+<div id="statusResult"></div>
 </div>
 </div>
-
-<div class="card">
-<div class="collapse" onclick="toggleCollapse('status')"><div style="display:flex;gap:10px;align-items:center"><div style="background:#dcfce7;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center">📊</div><h3 style="font-size:13px">3. View Membership Status & Rewards</h3></div><span id="status-arrow">▼</span></div>
-<div class="form-area active" id="status-area" style="display:block">
-<div class="input-grid">
-<div class="input-group"><label>Member ID or Phone</label><input id="checkId" placeholder="Enter ID or phone to check"></div>
-<div class="input-group"><label></label><button class="btn-primary" style="margin:0" onclick="checkStatus()">Check My Status</button></div>
-</div>
-<div id="statusResult" class="result-box" style="display:none"></div>
-</div>
-</div>
-
-</div>
-<div class="footer"><span>© 2025 ABAN BOME 3-in-1. All rights reserved.</span><span>Privacy Policy | Terms of Service</span></div>
-</div>
-
 <script>
-let selectedType = '';
-function selectType(type){
- selectedType = type;
- document.getElementById('typeDisplay').value = type;
- document.getElementById('form-area').classList.add('active');
- document.getElementById('form-area').scrollIntoView({behavior:'smooth'});
-}
+let selectedType='Student';
+function selectType(t){selectedType=t;document.getElementById('typeLabel').innerText=t;document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('selected'));document.getElementById('card-'+t.toLowerCase()).classList.add('selected');}
+function showSection(s){document.querySelectorAll('[id^=sec-]').forEach(e=>e.style.display='none');document.getElementById('sec-'+s).style.display='block';}
 async function register(){
- const name=document.getElementById('name').value;
- const phone=document.getElementById('phone').value;
- const location=document.getElementById('location').value;
- if(!name||!phone||!selectedType){alert('Fill name, phone, and select type');return}
- const resBox=document.getElementById('regResult');
- resBox.style.display='block';resBox.textContent='Creating membership...';
- try{
-  let r=await fetch('/api/index.py?action=register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,location,memberType:selectedType})});
-  if(!r.ok) r=await fetch('/api?action=register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,location,memberType:selectedType})});
-  const data=await r.json();
-  resBox.textContent=JSON.stringify(data,null,2);
-  if(data.memberId){document.getElementById('memberId').value=data.memberId;document.getElementById('checkId').value=data.memberId; alert('Success! Your Member ID: '+data.memberId);}
- }catch(e){resBox.textContent='Error: '+e}
-}
-async function sweep(){
- const wasteType=document.getElementById('wasteType').value;
- const weight=document.getElementById('weight').value;
- const area=document.getElementById('area').value;
- const memberId=document.getElementById('memberId').value;
- if(!weight||!area){alert('Enter weight and area');return}
- const resBox=document.getElementById('sweepResult');resBox.style.display='block';resBox.textContent='Submitting sweep...';
- try{
-  let r=await fetch('/api/index.py?action=sweep',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({wasteType,weight,area,memberId})});
-  if(!r.ok) r=await fetch('/api?action=sweep',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({wasteType,weight,area,memberId})});
-  const data=await r.json();resBox.textContent=JSON.stringify(data,null,2);
- }catch(e){resBox.textContent='Error: '+e}
-}
-async function checkStatus(){
- const id=document.getElementById('checkId').value;if(!id){alert('Enter ID');return}
- const resBox=document.getElementById('statusResult');resBox.style.display='block';resBox.textContent='Checking...';
- try{
-  let r=await fetch('/api/index.py?action=status&id='+encodeURIComponent(id));
-  if(!r.ok) r=await fetch('/api?action=status&id='+encodeURIComponent(id));
-  const data=await r.json();resBox.textContent=JSON.stringify(data,null,2);
- }catch(e){resBox.textContent='Error: '+e}
-}
-function toggleCollapse(id){
- const area=document.getElementById(id+'-area');
- const arrow=document.getElementById(id+'-arrow');
- if(area.style.display==='none'){area.style.display='block';arrow.textContent='▼'}else{area.style.display='none';arrow.textContent='▶'}
-}
-</script>
-</body>
-</html>
+const name=document.getElementById('name').value;const phone=document.getElementById('phone').value;const location=document.getElementById('location').value;
+if(!name||!phone){alert('Enter Name & Phone');return;}
+const btn=event.target;btn.innerText='Creating...';
+try{
+const res=await fetch('/api?action=register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify
