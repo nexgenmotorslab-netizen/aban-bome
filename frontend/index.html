@@ -1,159 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABAN BOME 3-in-1 | Kakra Micro-Bank at Your Doorstep</title>
+<title>ABAN BOME | Community Micro-Bank & Circular Economy Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,system-ui}
-body{background:#F5F7F6;color:#1A1A1A}
-.sidebar{position:fixed;left:0;top:0;width:280px;height:100vh;background:#0F2E1F;color:#fff;padding:18px;overflow-y:auto}
-.sidebar h2{color:#FACC15;line-height:1.05;font-size:21px}
-.nav a{display:block;padding:10px 11px;border-radius:10px;color:#CBD5E1;margin:4px 0;cursor:pointer;text-decoration:none;font-size:12.5px}
-.nav a.active{background:#16412C;color:#fff;border-left:3px solid #FACC15}
-.main{margin-left:280px;padding:18px}
-.banner{background:linear-gradient(135deg,#0F2E1F,#16412C 60%,#14532D);color:#fff;border-radius:18px;padding:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.card{background:#fff;border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.type{border:2px solid #E5E7EB;border-radius:14px;padding:12px;text-align:center;cursor:pointer}
-.type.active{border-color:#16A34A;background:#F0FDF4}
-.input{width:100%;padding:10px;border:1px solid #D1D5DB;border-radius:10px;margin:5px 0;font-size:13px}
-.btn{width:100%;padding:11px;border-radius:10px;border:none;font-weight:800;cursor:pointer;font-size:13px}
-.btn-green{background:#16A34A;color:#fff}
-.btn-dark{background:#0F2E1F;color:#fff}
-.btn-yellow{background:#FACC15;color:#000}
-.btn-blue{background:#1E40AF;color:#fff}
-.ok{background:#F0FDF4;border:2px solid #16A34A;border-radius:12px;padding:12px;text-align:center;margin-top:8px}
-.fund{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border:2px solid #F59E0B;border-radius:14px;padding:14px}
-.project{border:1px solid #E5E7EB;border-radius:12px;padding:11px;margin:7px 0;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.project.win{border-color:#16A34A;background:#F0FDF4}
-.job{border:1px solid #DBEAFE;border-radius:12px;padding:11px;margin:7px 0;background:#EFF6FF}
-.log{font-size:11px;background:#0F172A;color:#A7F3D0;border-radius:10px;padding:10px;max-height:180px;overflow-y:auto;line-height:1.4}
-@media(max-width:900px){.sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}.grid3,.grid2{grid-template-columns:1fr}}
+:root{--bg:#FAFAF8;--ink:#111110;--muted:#6B6B68;--line:#E8E6E1;--green:#0E2A1C;--lime:#D4FF32;--cream:#FFF8E8;--card:#FFFFFF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Geist',system-ui;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.serif{font-family:'Instrument Serif',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em}
+.sidebar{position:fixed;left:0;top:0;width:300px;height:100vh;background:var(--green);color:#EDEBE6;padding:28px 22px;display:flex;flex-direction:column}
+.logo{font-family:'Instrument Serif',serif;font-size:28px;line-height:.95;color:#fff;letter-spacing:-.02em}
+.logo i{color:var(--lime);font-style:italic}
+.side-meta{margin-top:18px;padding:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px}
+.nav{margin-top:22px;display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:10px;color:#A8A6A0;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:.2s}
+.nav a:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav a.active{background:#fff;color:var(--green);font-weight:600}
+.badge{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.05em}
+.main{margin-left:300px;padding:0}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
+.kpi{display:flex;gap:28px}
+.kpi b{font-size:20px;letter-spacing:-.02em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;margin:0;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.section{padding:28px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.type{border:1px solid var(--line);border-radius:16px;padding:18px;text-align:left;cursor:pointer;transition:.2s;background:#fff}
+.type:hover{border-color:var(--ink)}
+.type.active{border-color:var(--ink);background:var(--ink);color:#fff}
+.type.active small{color:#A8A6A0!important}
+.input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:13.5px;font-family:'Geist';outline:none;transition:.2s}
+.input:focus{border-color:var(--ink)}
+.btn{width:100%;padding:12px 16px;border-radius:12px;border:none;font-weight:600;font-size:13.5px;cursor:pointer;letter-spacing:-.01em;transition:.2s}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#000}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-ghost{background:transparent;border:1px solid var(--line)}
+.fund{background:var(--cream);border:1px solid #F0D9A0;border-radius:18px;padding:18px}
+.log{background:#111110;color:#D4FF32;border-radius:14px;padding:14px;font-family:'JetBrains Mono';font-size:11px;line-height:1.6;max-height:220px;overflow-y:auto}
+.project{display:flex;justify-content:space-between;align-items:center;padding:16px;border:1px solid var(--line);border-radius:16px;margin:8px 0;background:#fff;transition:.2s}
+.project:hover{border-color:var(--ink)}
+.job{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+.ok{background:#F5FFD6;border:1px solid #C8E66A;border-radius:14px;padding:14px;margin-top:12px}
+@media(max-width:960px){.sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}.grid3,.grid2{grid-template-columns:1fr}.topbar{flex-direction:column;align-items:flex-start;gap:12px}}
 </style>
 </head>
 <body>
 <div class="sidebar">
-<h2>ABAN BOME<br>3-in-1</h2>
-<p style="color:#A7F3D0;font-size:10.5px;margin:6px 0 12px">Micro-Bank at Your Doorstep<br>Sulley Fouard | Adonten SHS x Openlabs</p>
+<div class="logo">ABAN BOME<br><i>Micro-Bank</i></div>
+<p class="mono" style="margin-top:8px;color:#8A8A86">CIRCULAR ECONOMY • 0.01 MICRO-SAVINGS • 02:03 NIGHT CRAWLER</p>
+<div class="side-meta">
+<div class="mono" style="color:#D4FF32">LIVE COMMUNITY POOL</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6px"><b id="fundTotalSide" class="serif" style="font-size:26px;color:#fff">GHC 12,450.00</b><span class="mono" style="color:#A8A6A0">AUDITED</span></div>
+<div class="mono" id="sideMeta" style="margin-top:6px;color:#A8A6A0">848 members • Last crawl 02:03 • 40/40/20 model</div>
+<div style="margin-top:12px;display:flex;gap:6px"><span class="badge" style="background:var(--lime);color:var(--green)">0.01 PES. CAPTURE</span><span class="badge" style="background:rgba(255,255,255,.1);color:#fff">DIVIDEND READY</span></div>
+</div>
 <div class="nav">
-<a id="n1" class="active" onclick="show('membership')">🏠 Become Member</a>
-<a id="n2" onclick="show('sweep')">♻️ Kakra Sweep</a>
-<a id="n3" onclick="show('kakra')">💰 Kakra Bank + Night Crawler</a>
-<a id="n4" onclick="show('fund')">🏦 Community Fund</a>
-<a id="n5" onclick="show('career')">💼 Skills & Jobs Hub</a>
-<a id="n6" onclick="show('egov')">🏛️ E-Governance</a>
-<a id="n7" onclick="show('status')">📊 My Status & Dividends</a>
+<a id="n1" class="active" onclick="show('membership')"><span>01 — Membership</span><span class="badge" style="background:#E8E6E1">NEW</span></a>
+<a id="n2" onclick="show('sweep')"><span>02 — Sweep & Value Recovery</span><span>♻️</span></a>
+<a id="n3" onclick="show('kakra')"><span>03 — Kakra Wallet / Night Crawler</span><span>🌙</span></a>
+<a id="n4" onclick="show('fund')"><span>04 — Community Fund & Governance</span><span>🏦</span></a>
+<a id="n5" onclick="show('career')"><span>05 — Skills, Jobs & Enduring Projects</span><span>💼</span></a>
+<a id="n6" onclick="show('egov')"><span>06 — E-Governance</span><span>🏛️</span></a>
+<a id="n7" onclick="show('status')"><span>07 — Portfolio & Dividends</span><span>📊</span></a>
 </div>
-<div style="margin-top:12px;padding:10px;background:#16412C;border-radius:10px">
-<small style="color:#FACC15">NIGHT CRAWLER POOL</small><br>
-<b id="fundTotalSide" style="font-size:18px">GHC 12,450</b><br>
-<small style="color:#A7F3D0" id="sideMeta">From 848 people • Last crawl 2:03 AM</small>
+<div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)">
+<div class="mono" style="color:#6B6B68">BUILT FOR ANY COMMUNITY<br>GENERIC • SCALABLE • AUDITABLE<br>Small money → Enduring infrastructure</div>
 </div>
 </div>
-
 <div class="main">
-<div class="banner">
-<div><h2 style="font-size:20px">Bank at Your Doorstep - While You Sleep</h2><p style="color:#A7F3D0;font-size:12px">Collects 0.01, 0.03 pesewas + invests in boreholes, solar, jobs</p></div>
-<div style="display:flex;gap:12px;text-align:center;flex-wrap:wrap">
-<div><div style="color:#FACC15;font-size:10px">MEMBERS</div><div style="font-weight:800;font-size:17px" id="totalM">0</div></div>
-<div><div style="color:#FACC15;font-size:10px">COLLECTED</div><div style="font-weight:800;font-size:17px" id="totalW">0kg</div></div>
-<div><div style="color:#FACC15;font-size:10px">FUND</div><div style="font-weight:800;font-size:17px" id="totalF">GHC 0</div></div>
-<div><div style="color:#FACC15;font-size:10px">JOBS</div><div style="font-weight:800;font-size:17px" id="totalJ">24 Youth</div></div>
+<div class="topbar">
+<div>
+<h1 class="serif" style="font-size:32px;line-height:.9;letter-spacing:-.03em">Bank at your doorstep.<br><span style="color:#6B6B68">While you sleep.</span></h1>
+<p class="mono" style="margin-top:8px">COLLECTS 0.01, 0.03 PES. • CONVERTS WASTE TO REVENUE • FUNDS SOLAR, BOREHOLES, JOBS</p>
+</div>
+<div class="kpi">
+<div><div class="mono">MEMBERS</div><b id="totalM" class="serif">0</b></div>
+<div><div class="mono">WASTE RECOVERED</div><b id="totalW" class="serif">0kg</b></div>
+<div><div class="mono">POOL AUM</div><b id="totalF" class="serif" style="color:#0E2A1C">GHC 0</b></div>
 </div>
 </div>
+<div class="section">
+<div id="s-membership" class="card">
 
- <div id="s-membership" class="card">
-<h3>1. Become Member - Student, Community, Investor</h3>
-<div class="grid3" style="margin-top:10px">
-<div class="type active" id="t-student" onclick="pick('Student')"><div style="font-size:24px">🎓</div><b>Student</b><br><small>Adonten SHS</small><div style="font-size:9px;color:#16A34A">0.01 MoMo + Data daily</div></div>
-<div class="type" id="t-business" onclick="pick('Business')"><div style="font-size:24px">🏪</div><b>Investor</b><br><small>Invest GHC 1000+</small><div style="font-size:9px;color:#0F2E1F">Funds projects + gets 10%</div></div>
-<div class="type" id="t-community" onclick="pick('Community')"><div style="font-size:24px">👥</div><b>Community</b><br><small>Mamfe Aburi Akropong</small><div style="font-size:9px;color:#D97706">0.03 pesewas + sweeps</div></div>
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+<div><div class="mono">01 / ONBOARDING</div><h2 class="serif" style="font-size:28px;margin-top:6px;letter-spacing:-.02em">Join the micro-bank.<br>Open for every citizen.</h2><p style="margin-top:8px;color:var(--muted);font-size:13px;max-width:520px">No minimum balance. Night Crawler captures dormant value — MoMo pesewas, expiring data, leftover airtime — and converts to community equity. Investor, student, resident — all earn.</p></div>
+<div class="fund" style="min-width:260px"><div class="mono">HOW IT WORKS</div><div style="font-size:12px;margin-top:8px;line-height:1.5">60% → Enduring projects<br>20% → Monthly dividends<br>20% → Skills & jobs<br><br><span class="mono" style="background:#111;color:#D4FF32;padding:2px 6px;border-radius:6px">10K people x 0.15/day = GHC 45K/mo</span></div></div>
 </div>
-<input id="name" class="input" placeholder="Full Name * Sulley Fouard">
-<div style="display:flex;gap:8px"><input id="phone" class="input" placeholder="Phone * 0271543837"><input id="loc" class="input" placeholder="Town * Aburi / Mamfe / Akropong / Investor-Accra"></div>
-<div style="display:flex;gap:8px"><input id="investAmt" class="input" placeholder="If Investor - Amount GHC e.g. 1000 (optional)"><select id="skill" class="input"><option value="">If Student - Skill you want</option><option>Coding</option><option>Welding</option><option>Organic Farming</option><option>Solar Installation</option><option>Biogas</option></select></div>
-<p style="font-size:11px">Selected: <b id="picked">Student</b> - Night Crawler will collect 0.01-0.97 daily while you sleep</p>
-<button class="btn btn-green" onclick="becomeMember()">Join Micro-Bank + Enable Night Crawler →</button>
+<div class="grid3" style="margin-top:18px">
+<div class="type active" id="t-student" onclick="pick('Student')"><div class="mono">ROLE A</div><b style="font-size:15px">Youth / Student</b><br><small style="color:var(--muted)">Any school, any age • Saves 0.01 daily • Earns dividends + career</small></div>
+<div class="type" id="t-business" onclick="pick('Business')"><div class="mono">ROLE B</div><b style="font-size:15px">Investor</b><br><small style="color:var(--muted)">Invest GHC 1,000+ • Funds projects • 10% monthly return + skilled workforce</small></div>
+<div class="type" id="t-community" onclick="pick('Community')"><div class="mono">ROLE C</div><b style="font-size:15px">Resident / Citizen</b><br><small style="color:var(--muted)">Any town • Sweeps & saves • 40% instant + dividends</small></div>
+</div>
+<div class="grid2" style="margin-top:14px">
+<input id="name" class="input" placeholder="Full Name">
+<input id="phone" class="input" placeholder="Phone Number">
+<input id="loc" class="input" placeholder="Location / Town">
+<div style="display:flex;gap:10px"><input id="investAmt" class="input" placeholder="If Investor — Amount (GHC)"><select id="skill" class="input"><option value="">Skill Interest (optional)</option><option>Coding & App Development</option><option>Organic Farming & Agribusiness</option><option>Solar & Green Energy</option><option>Biogas & Circular Systems</option><option>Welding & Recycling Manufacturing</option></select></div>
+</div>
+<div style="margin-top:12px;display:flex;gap:10px"><button class="btn btn-primary" onclick="becomeMember()">Create Membership & Enable Night Crawler →</button><button class="btn btn-ghost" style="width:auto" onclick="localStorage.clear(); location.reload()">Reset Demo</button></div>
 <div id="out-member"></div>
 </div>
 
 <div id="s-sweep" class="card" style="display:none">
-<h3>2. Kakra Sweep - Borla Becomes Business (Government Earns Too!)</h3>
-<p style="font-size:11px;color:#555">Profit Share: 40% Sweeper + 40% Government/Assembly + 20% Community Fund</p>
-<div class="grid2" style="margin-top:8px">
-<div><label style="font-size:10px">Waste Type</label><select id="waste" class="input"><option>Plastic - Sell to Factory GHC 3/kg</option><option>Organic - Biogas</option><option>Metal - Sell GHC 5/kg</option><option>E-Waste</option><option>Paper</option></select></div>
-<div><label style="font-size:10px">Weight (kg)</label><input id="kg" class="input" type="number" value="5"></div>
+<div class="mono">02 / CIRCULAR ECONOMY</div>
+<h2 class="serif" style="font-size:26px;margin-top:6px">Waste is not cost. Waste is inventory.</h2>
+<p style="color:var(--muted);font-size:13px;margin-top:6px;max-width:640px">Old model: Assembly pays GHC 10k to dump. New model: 40% Sweeper / 40% Government-Assembly / 20% Community Fund. Assembly earns revenue, town stays clean, contributors earn dividends.</p>
+<div class="grid3" style="margin-top:16px">
+<div><label class="mono">WASTE STREAM</label><select id="waste" class="input"><option>Plastic — GHC 3/kg to factory</option><option>Organic — Biogas feedstock</option><option>Metal — GHC 5/kg</option><option>E-Waste</option><option>Paper</option></select></div>
+<div><label class="mono">WEIGHT (KG)</label><input id="kg" class="input" type="number" value="5"></div>
+<div><label class="mono">MEMBER ID</label><input id="mid" class="input" placeholder="ABAN-..."></div>
 </div>
-<div class="grid2"><input id="area" class="input" placeholder="Area Swept * Akropong Market" value="Akropong"><input id="mid" class="input" placeholder="Member ID * ABAN-..."></div>
-<button class="btn btn-green" onclick="doSweep()">Submit Sweep → Sell to Factory → Share Profit →</button>
-<div id="out-sweep" style="margin-top:8px"></div>
-<div class="card" style="background:#FFFBEB;font-size:11px"><b>How Government Benefits:</b> Before Assembly paid GHC 10k to dump borla. Now Assembly earns 40% from recycling sales! Example: 1000kg plastic = GHC 3000 → Assembly GHC 1200 profit!</div>
+<div style="margin-top:12px"><input id="area" class="input" placeholder="Area Swept (e.g. Market, School, Street)"></div>
+<button class="btn btn-primary" style="margin-top:12px" onclick="doSweep()">Submit Recovery → Sell to Factory → Distribute 40/40/20 →</button>
+<div id="out-sweep"></div>
 </div>
 
 <div id="s-kakra" class="card" style="display:none">
-<h3>3. Kakra Bank + Night Crawler Bot (2:03 AM)</h3>
-<div class="grid2">
-<div class="fund"><b>🌙 Night Crawler Log</b><div class="log" id="crawlLog">No crawl yet today. Click Run Night Crawler to simulate 2AM collection from ALL accounts.</div>
-<button class="btn btn-dark" style="margin-top:8px;background:#0F172A" onclick="nightCrawl()">🌙 Run Night Crawler Now (2:03 AM Simulation)</button>
-<button class="btn btn-yellow" style="margin-top:6px" onclick="collectKakra()">💰 Collect My Single MoMo Pesewas Only</button>
+<div class="mono">03 / NIGHT CRAWLER PROTOCOL — 02:03 AM</div>
+<div class="grid2" style="margin-top:12px">
+<div class="fund">
+<div style="display:flex;justify-content:space-between"><b class="mono">CRAWLER LOG</b><span class="badge" style="background:#111;color:#D4FF32">AUTOMATED</span></div>
+<div class="log" id="crawlLog" style="margin-top:10px">System idle. Night Crawler will sweep all member accounts at 02:03, capturing dormant MoMo pesewas, leftover airtime, expiring data. Simulate now.</div>
+<button class="btn btn-primary" style="margin-top:12px" onclick="nightCrawl()">🌙 Run Night Crawler — All Accounts (02:03 Simulation)</button>
+<button class="btn btn-ghost" style="margin-top:8px" onclick="collectKakra()">Collect Single Member Pesewas Only</button>
 </div>
 <div>
-<div class="card" style="margin:0;background:#F0FDF4"><b>💰 How 0.01 Becomes Big</b><div style="font-size:11px;margin-top:6px;line-height:1.35">
-MoMo: GHC 19.97 → Bot takes 0.97p<br>Airtime: 0.03p left → Bot takes 0.03<br>Data: 12MB expiring → Bot converts GHC 0.12<br><b>You sleep, bot works!</b><br><br><b>Math:</b> 10,000 people x GHC 0.15/day = GHC 45,000/month!
-</div></div>
-<div class="card" style="margin:8px 0 0 0"><b>💳 My Wallet</b><div id="myWallet" style="font-size:12px;margin-top:4px">Check Status first</div></div>
+<div class="card" style="margin:0;background:#111110;color:#EDEBE6;border-color:#222">
+<div class="mono" style="color:#D4FF32">UNIT ECONOMICS</div>
+<div style="font-size:12px;margin-top:10px;line-height:1.6;color:#A8A6A0">
+<span style="color:#fff">MoMo:</span> GHC 19.97 → capture 0.97<br>
+<span style="color:#fff">Airtime:</span> 0.03 leftover → capture 0.03<br>
+<span style="color:#fff">Data:</span> 12MB expiring → GHC 0.12<br><br>
+Member never feels 0.01. Pool feels compound.<br><br>
+<span class="mono" style="color:#D4FF32">10,000 x 0.15 = 1,500/day = 45K/mo AUM</span>
 </div>
 </div>
-<div class="grid3" style="margin-top:10px">
-<button class="btn btn-dark" onclick="alert('Withdrawing Kakra to MoMo... Sent!')">📤 Withdraw Kakra to MoMo</button>
-<button class="btn btn-green" onclick="alert('Converted to Points! You can vote & apply for jobs.')">🔄 Convert to Voting Points</button>
-<button class="btn btn-blue" onclick="show('career')">💼 Invest in Skills Training</button>
+<div class="card" style="margin-top:12px"><div class="mono">MY WALLET</div><div id="myWallet" style="margin-top:8px;font-size:13px;color:var(--muted)">Check Portfolio first</div></div>
+</div>
 </div>
 </div>
 
 <div id="s-fund" class="card" style="display:none">
-<h3>4. Okuapeman Community Fund - Pool + Dividends</h3>
-<div class="fund">
-<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-<div><b style="font-size:18px">GHC <span id="fundAmt">12,450</span> Total Pool</b><br><small id="fundMeta">From 848 people</small></div>
-<div style="text-align:right;font-size:11px"><b>Distribution:</b><br>60% Projects<br>20% Dividends<br>20% Skills Training</div>
+<div class="mono">04 / COMMUNITY FUND — GOVERNED BY CONTRIBUTORS</div>
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:12px">
+<div class="fund" style="flex:1;min-width:280px"><b class="serif" style="font-size:24px">GHC <span id="fundAmt">12,450.00</span></b><div class="mono" id="fundMeta" style="margin-top:4px">Pool AUM</div><div class="mono" style="margin-top:10px;background:#fff;border-radius:8px;padding:8px">60% Projects | 20% Dividends | 20% Skills • 40/40/20 waste model • Audited</div></div>
+<div style="flex:1;min-width:280px"><div class="mono">GOVERNANCE</div><h3 class="serif" style="font-size:20px;margin-top:4px">Contributors vote. Fund builds. Everyone earns.</h3><p style="font-size:12px;color:var(--muted);margin-top:6px">Two monies → one vote power: Kakra micro-savings + Waste recovery profit. Projects must be enduring and generate monthly revenue.</p></div>
 </div>
-</div>
-<h4 style="margin-top:12px">🗳️ Vote - Where Should 2 Monies Invest?</h4>
-<div id="projects"></div>
+<div style="margin-top:18px" id="projects"></div>
 <div id="out-fund"></div>
-<div class="card" style="background:#EFF6FF"><b>📈 Dividend Example</b><div style="font-size:11px;margin-top:4px">Ama saved GHC 15 → Borehole makes GHC 500/mo → Ama gets GHC 0.50/mo forever + clean water! Investor GHC 1000 in solar → Gets GHC 100/mo + trained youth.</div></div>
 </div>
 
-<div id="s-career" class="card" style="display:none">
-<h3>5. Skills & Jobs Hub - Career Path</h3>
-<p style="font-size:11px">Investors invest in youth skills, youth get jobs, investors get workers + dividends!</p>
-<div class="grid2" style="margin-top:8px">
-<div class="job"><b>💻 Coding at OpenLabs</b><br><small>Investor: Kwame M. - GHC 2,000 for 5 coders</small><br><small>Applied: 12 youth | Training: 5 | Progress: 60%</small><br><button class="btn btn-blue" style="margin-top:6px;padding:6px" onclick="applyJob('Coding')">Apply with Points</button></div>
-<div class="job"><b>🌱 Organic Farming - Aburi</b><br><small>Investor: Community Fund - GHC 3,200 farm</small><br><button class="btn btn-green" style="margin-top:6px;padding:6px" onclick="applyJob('Farming')">Apply with Points</button></div>
-<div class="job"><b>🔧 Solar Installation</b><br><small>Investor: Assembly + GHC 6,000 | Need: 8 installers</small><br><button class="btn btn-yellow" style="margin-top:6px;padding:6px" onclick="applyJob('Solar')">Apply with Points</button></div>
-<div class="job"><b>♻️ Biogas from Borla</b><br><small>Investor: Investor pool GHC 4,500 | Gas for chop bars</small><br><button class="btn btn-dark" style="margin-top:6px;padding:6px" onclick="applyJob('Biogas')">Apply with Points</button></div>
+ <div id="s-career" class="card" style="display:none">
+<div class="mono">05 / SKILLS, JOBS & ENDURING PROJECTS — DETAILED</div>
+<h2 class="serif" style="font-size:26px;margin-top:6px">Invest in people. People build infrastructure. Infrastructure pays dividends.</h2>
+<p style="color:var(--muted);font-size:13px;margin-top:6px;max-width:720px">Each track: 8-12 weeks, no laptop required for most, certified, job GHC 800-1,250/month + profit-share. Investor gets skilled worker + 10% monthly. Government gets jobs without budget.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
+<div class="job"><div class="mono">TRACK 01 — TECHNOLOGY</div><b class="serif" style="font-size:18px">Full-Stack Coding & Micro-Banking Systems</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Tech Entrepreneur — GHC 5,000<br><b>Curriculum (12w):</b> HTML/CSS/JS/Python → React/Mobile/MoMo API → Real client builds<br><b>Outcome:</b> Junior Dev GHC 1,200/mo + GHC 500/site freelance<br><b>Revenue:</b> Website GHC 2,000 → 40% dev / 30% investor / 30% Fund<br><b>Pipeline:</b> 24 applied, 8 training, 3 employed</div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Coding')">Apply — 5 Points Required</button></div>
+<div class="job"><div class="mono">TRACK 02 — AGRIBUSINESS</div><b class="serif" style="font-size:18px">Organic Farming & Waste-to-Compost</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Cooperative — GHC 8,000<br><b>Curriculum (10w):</b> Organic farming, compost from waste, packaging, sales<br><b>Outcome:</b> 1 acre → GHC 800-1,500 per harvest<br><b>Revenue:</b> GHC 4,000/mo → 50% farmer / 20% investor / 30% Fund<br><b>Pipeline:</b> 32 applied, 12 training</div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Farming')">Apply — 5 Points Required</button></div>
+<div class="job"><div class="mono">TRACK 03 — GREEN ENERGY</div><b class="serif" style="font-size:18px">Solar Installation — Certified Technician</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Assembly + Energy Commission — GHC 12,000<br><b>Curriculum (8w certified):</b> Install/maintain solar for schools/homes<br><b>Outcome:</b> GHC 1,000 + GHC 50/install = GHC 1,250/mo<br><b>Revenue:</b> School saves GHC 500 ECG, pays GHC 300 to tech/investors — 20yr asset<br><b>Pipeline:</b> 18 applied, 6 training</div><button class="btn btn-lime" style="margin-top:12px" onclick="applyJob('Solar')">Apply — 5 Points Required</button></div>
+<div class="job"><div class="mono">TRACK 04 — CIRCULAR SYSTEMS</div><b class="serif" style="font-size:18px">Biogas & Waste-to-Wealth Engineering</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Waste Company — GHC 9,500 plant<br><b>Curriculum (8w):</b> Convert food waste to cooking gas, sell to homes<br><b>Outcome:</b> 2 digesters → GHC 900/mo<br><b>Revenue:</b> 500kg/day → GHC 200 gas/day = GHC 6,000/mo → 40/40/20<br><b>Pipeline:</b> 15 applied, 4 training</div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Biogas')">Apply — 5 Points Required</button></div>
+<div class="job" style="grid-column:1/-1"><div class="mono">TRACK 05 — MANUFACTURING</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div><b class="serif" style="font-size:18px">Welding, Fabrication & Recycling Manufacturing</b><div style="font-size:12px;margin-top:8px;line-height:1.6;color:#333"><b>Investor:</b> Factory — GHC 15,000 machines<br><b>Learn:</b> Weld gates/beds/chairs from scrap, operate shredder/extruder, make chairs/dustbins/blocks<br><b>Outcome:</b> Operator GHC 1,100 + bonus</div></div><div style="font-size:12px;line-height:1.6;color:#333"><b>Revenue:</b> 1000kg plastic = 50 chairs = GHC 7,500 sales → Profit GHC 5,500/mo → 40% workers / 40% investor / 20% Fund<br>Orders from 3 schools already.<br><br><b>Pipeline:</b> 20 applied, 5 training</div></div><button class="btn btn-primary" style="margin-top:12px" onclick="applyJob('Welding & Recycling')">Apply — 5 Points Required</button></div>
 </div>
 <div id="out-career"></div>
-<div class="card" style="background:#FFFBEB;font-size:11px"><b>Investor Dashboard:</b> Total Investors: <span id="invCount">3</span> | Total Invested: GHC <span id="invAmt">8000</span> | Youth Employed: 12 | Return: 10% monthly + skilled workers</div>
+<div class="card" style="margin-top:16px;background:var(--cream)"><div class="mono">DASHBOARD — HOW EVERYONE BENEFITS</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px;font-size:12px;line-height:1.5"><div><b>Pool:</b> Investors <span id="invCount">0</span> • GHC <span id="invAmt">0</span> • Youth 109 applied / 31 training / 3 employed</div><div><b>Government:</b> Earns 40% from waste (was cost), jobs created without budget, projects funded by citizens, taxes from expanded market</div><div><b>Citizen:</b> 0.01 → monthly dividend forever, sweep → 40% instant, skill → job GHC 800-1,250, vote → decides development</div></div></div>
 </div>
 
 <div id="s-egov" class="card" style="display:none">
-<h3>6. E-Governance - Government at Your Doorstep</h3>
-<div class="grid2">
-<div class="card" style="margin:0"><b>📸 Report Issue (Earn Points)</b><input id="issue" class="input" placeholder="Gutter choked at Mamfe"><input id="issueLoc" class="input" placeholder="Location"><button class="btn btn-dark" onclick="reportIssue()">Report + Earn 10 Points</button><div id="out-issue" style="margin-top:6px"></div></div>
-<div class="card" style="margin:0"><b>💳 Pay Assembly Fee via Kakra</b><select class="input"><option>Market Toll - GHC 5</option><option>Property Rate - GHC 10</option></select><input id="mid2" class="input" placeholder="Member ID"><button class="btn btn-green" onclick="alert('Paid via Kakra Wallet! Receipt #'+Math.random().toString(36).substr(2,5).toUpperCase())">Pay Now from Kakra Wallet</button></div>
+<div class="mono">06 / E-GOVERNANCE</div>
+<div class="grid2" style="margin-top:12px">
+<div class="card" style="margin:0"><b>Report Issue — Earn Governance Points</b><input id="issue" class="input" placeholder="e.g. Gutter choked, street light off" style="margin-top:8px"><input id="issueLoc" class="input" placeholder="Location" style="margin-top:8px"><button class="btn btn-primary" style="margin-top:10px" onclick="reportIssue()">Report + Earn 10 Points</button><div id="out-issue" style="margin-top:10px"></div></div>
+<div class="card" style="margin:0"><b>Pay Assembly Fee via Kakra Wallet</b><select class="input" style="margin-top:8px"><option>Market Toll — GHC 5</option><option>Community Levy — GHC 10</option><option>Property Rate — GHC 15</option></select><input id="mid2" class="input" placeholder="Member ID" style="margin-top:8px"><button class="btn btn-lime" style="margin-top:10px" onclick="alert('Paid! Receipt #'+Math.random().toString(36).substr(2,5).toUpperCase())">Pay Now from Kakra Wallet</button></div>
 </div>
-<div class="card" style="background:#FFFBEB"><b>🏛️ Recent Reports</b><div id="reports" style="font-size:11px;margin-top:6px"></div></div>
+<div class="card" style="margin-top:12px;background:#FFFBEB"><b class="mono">RECENT REPORTS</b><div id="reports" style="font-size:12px;margin-top:8px"></div></div>
 </div>
 
 <div id="s-status" class="card" style="display:none">
-<h3>7. My Status, Dividends & Career</h3>
-<div style="display:flex;gap:6px"><input id="sid" class="input" placeholder="Enter Member ID"><button class="btn btn-dark" style="width:130px" onclick="doStatus()">Check Status</button></div>
+<div class="mono">07 / PORTFOLIO & DIVIDENDS</div>
+<div style="display:flex;gap:10px;margin-top:12px"><input id="sid" class="input" placeholder="Enter Member ID (ABAN-...)"><button class="btn btn-primary" style="width:160px" onclick="doStatus()">Check Portfolio</button></div>
 <div id="out-status"></div>
-<div class="card" style="background:#FFFBEB"><b>🏆 Top Contributors - Okuapeman Leaders</b><div id="board" style="font-size:11px;margin-top:6px"></div></div>
+<div class="card" style="margin-top:14px"><b class="mono">LEADERBOARD — TOP CONTRIBUTORS</b><div id="board" style="font-size:12px;margin-top:8px"></div></div>
+</div>
 </div>
 </div>
 
@@ -164,12 +194,12 @@ let PROJECTS = JSON.parse(localStorage.getItem('aban_projects_final')||'[312,234
 let FUND = parseFloat(localStorage.getItem('aban_fund_final')||'12450');
 let REPORTS = JSON.parse(localStorage.getItem('aban_reports_final')||'[]');
 let INV_POOL = parseFloat(localStorage.getItem('aban_inv_pool')||'8000');
-function pick(t){pickedType=t;document.getElementById('picked').innerText=t;document.querySelectorAll('.type').forEach(e=>e.classList.remove('active'));document.getElementById('t-'+t.toLowerCase()).classList.add('active');}
-function show(s){document.querySelectorAll('[id^=s-]').forEach(e=>e.style.display='none');document.getElementById('s-'+s).style.display='block';document.querySelectorAll('.nav a').forEach(e=>e.classList.remove('active'));let map={membership:'n1',sweep:'n2',kakra:'n3',fund:'n4',career:'n5',egov:'n6',status:'n7'};document.getElementById(map[s]).classList.add('active');}
+function pick(t){pickedType=t;document.querySelectorAll('.type').forEach(e=>e.classList.remove('active'));document.getElementById('t-'+t.toLowerCase()).classList.add('active');}
+function show(s){document.querySelectorAll('[id^=s-]').forEach(e=>e.style.display='none');document.getElementById('s-'+s).style.display='block';document.querySelectorAll('.nav a').forEach(e=>e.classList.remove('active'));let map={membership:'n1',sweep:'n2',kakra:'n3',fund:'n4',career:'n5',egov:'n6',status:'n7'};document.getElementById(map[s]).classList.add('active');window.scrollTo(0,0);}
 function becomeMember(){
  const name=document.getElementById('name').value.trim();
  const phone=document.getElementById('phone').value.trim();
- const loc=document.getElementById('loc').value.trim()||'Aburi';
+ const loc=document.getElementById('loc').value.trim()||'Community';
  const inv=document.getElementById('investAmt').value.trim();
  const skill=document.getElementById('skill').value;
  if(!name||!phone){alert('Enter Name & Phone');return;}
@@ -180,7 +210,7 @@ function becomeMember(){
  localStorage.setItem('aban_db_final',JSON.stringify(DB));
  localStorage.setItem('aban_fund_final',FUND);
  updateAll();
- document.getElementById('out-member').innerHTML=`<div class="ok"><h3>🎉 Welcome ${name}!</h3><p style="font-size:20px;font-weight:900;color:#16A34A">ID: ${id}</p><p>${pickedType} | ${loc} ${skill?'| Skill: '+skill:''} ${inv?'| Invested: GHC '+inv:''}</p><p style="font-size:10px">Night Crawler enabled - Will collect 0.01-0.97 daily at 2AM while you sleep</p><button class="btn btn-green" style="margin-top:8px" onclick="document.getElementById('mid').value='${id}';document.getElementById('mid2').value='${id}';document.getElementById('sid').value='${id}';show('sweep')">Start →</button></div>`;
+ document.getElementById('out-member').innerHTML=`<div class="ok"><b>Welcome, ${name}</b> — ID <span class="mono">${id}</span> — ${pickedType} • ${loc} ${skill?'• '+skill:''} ${inv?'• GHC '+inv:''}<br><span class="mono" style="font-size:10px">Night Crawler enabled — 02:03 daily capture</span><br><button class="btn btn-primary" style="margin-top:10px" onclick="document.getElementById('mid').value='${id}';document.getElementById('mid2').value='${id}';document.getElementById('sid').value='${id}';show('sweep')">Continue to Sweep →</button></div>`;
  document.getElementById('mid').value=id;document.getElementById('mid2').value=id;document.getElementById('sid').value=id;
 }
 function doSweep(){
@@ -189,14 +219,13 @@ function doSweep(){
  if(!kg||!mid||!DB[mid]){alert('Valid Member ID needed');return;}
  const totalSales = kg * 3;
  const sweeperShare = totalSales * 0.4;
- const govShare = totalSales * 0.4;
  const fundShare = totalSales * 0.2;
  DB[mid].kg+=kg; DB[mid].earned+=sweeperShare; DB[mid].points+=kg*2;
  FUND+=fundShare;
  localStorage.setItem('aban_db_final',JSON.stringify(DB));
  localStorage.setItem('aban_fund_final',FUND);
  updateAll();
- document.getElementById('out-sweep').innerHTML=`<div class="ok"><h3>♻️ Borla Sold to Factory!</h3><p style="font-size:12px">Total Sales: GHC ${totalSales.toFixed(2)} for ${kg}kg<br>💰 You: GHC ${sweeperShare.toFixed(2)} (40%)<br>🏛️ Gov: GHC ${govShare.toFixed(2)} (40%)<br>🏦 Fund: GHC ${fundShare.toFixed(2)} (20%)</p><button class="btn btn-dark" style="margin-top:6px" onclick="show('fund')">Vote for Project →</button></div>`;
+ document.getElementById('out-sweep').innerHTML=`<div class="ok"><b>♻️ Recovery Complete — Sold to Factory</b><br><span class="mono">Total: GHC ${totalSales.toFixed(2)} | You 40%: GHC ${sweeperShare.toFixed(2)} | Gov 40%: GHC ${(totalSales*0.4).toFixed(2)} | Fund 20%: GHC ${fundShare.toFixed(2)}</span><br><button class="btn btn-primary" style="margin-top:8px;width:auto" onclick="show('fund')">Vote for Project →</button></div>`;
 }
 function collectKakra(){
  const mid=document.getElementById('mid').value.trim();
@@ -206,10 +235,10 @@ function collectKakra(){
  localStorage.setItem('aban_db_final',JSON.stringify(DB));
  localStorage.setItem('aban_fund_final',FUND);
  updateAll();
- document.getElementById('crawlLog').innerHTML = `Single collection: GHC ${amt} from ${DB[mid].name}<br>` + document.getElementById('crawlLog').innerHTML;
+ document.getElementById('crawlLog').innerHTML = `Single: GHC ${amt} from ${DB[mid].name}<br>` + document.getElementById('crawlLog').innerHTML;
 }
 function nightCrawl(){
- if(Object.keys(DB).length===0){alert('Create members first!');return;}
+ if(Object.keys(DB).length===0){alert('Create members first');return;}
  let total=0; let logLines=[];
  for(let id in DB){
    let momo=(Math.random()*0.9+0.01).toFixed(2);
@@ -218,32 +247,32 @@ function nightCrawl(){
    let sum=parseFloat(momo)+parseFloat(air)+parseFloat(data);
    DB[id].kakra+=sum; DB[id].earned+=sum; DB[id].points+=1;
    total+=sum;
-   logLines.push(`${DB[id].name}: MoMo ${momo}+Air ${air}+Data ${data}=GHC ${sum.toFixed(2)}`);
+   logLines.push(`${DB[id].name} (${DB[id].loc}) — MoMo ${momo} + Air ${air} + Data ${data} = GHC ${sum.toFixed(2)}`);
  }
  FUND+=total;
  localStorage.setItem('aban_db_final',JSON.stringify(DB));
  localStorage.setItem('aban_fund_final',FUND);
  updateAll();
- document.getElementById('crawlLog').innerHTML=`<b>🌙 NIGHT CRAWL ${new Date().toLocaleTimeString()} - 2:03 AM</b><br>Collected GHC ${total.toFixed(2)} from ${Object.keys(DB).length} accounts while sleeping:<br>${logLines.slice(0,6).join('<br>')}${logLines.length>6?'<br>...and '+(logLines.length-6)+' more':''}<br><b>→ Invested in Fund. Dividends tomorrow!</b><br><br>` + document.getElementById('crawlLog').innerHTML;
- alert(`🌙 Night Crawl Done! GHC ${total.toFixed(2)} collected from ${Object.keys(DB).length} members while sleeping! Fund now GHC ${FUND.toFixed(2)}`);
+ document.getElementById('crawlLog').innerHTML=`<b>🌙 NIGHT CRAWL ${new Date().toLocaleTimeString()} — 02:03</b><br>Captured GHC ${total.toFixed(2)} from ${Object.keys(DB).length} accounts while sleeping:<br>${logLines.slice(0,8).join('<br>')}${logLines.length>8?'<br>…+'+(logLines.length-8)+' more':''}<br><br>` + document.getElementById('crawlLog').innerHTML;
+ alert(`Night Crawler: GHC ${total.toFixed(2)} from ${Object.keys(DB).length} members — Fund GHC ${FUND.toFixed(2)}`);
 }
 function vote(i){
  const sid=document.getElementById('sid').value||document.getElementById('mid').value;
- if(!sid||!DB[sid]){alert('Check Status first');show('status');return;}
+ if(!sid||!DB[sid]){alert('Check Portfolio first');show('status');return;}
  if(DB[sid].points<1){alert('Need 1 point');return;}
  PROJECTS[i]+=1; DB[sid].points-=1;
  localStorage.setItem('aban_projects_final',JSON.stringify(PROJECTS));
  localStorage.setItem('aban_db_final',JSON.stringify(DB));
- document.getElementById('out-fund').innerHTML=`<div class="ok">✅ Voted! Project ${PROJECTS[i]} votes</div>`;
+ document.getElementById('out-fund').innerHTML=`<div class="ok">✅ Voted — Project ${PROJECTS[i]} votes</div>`;
  updateAll();
 }
 function applyJob(skill){
  const sid=document.getElementById('sid').value||document.getElementById('mid').value;
- if(!sid||!DB[sid]){alert('Check Status & enter ID first');show('status');return;}
- if(DB[sid].points<5){alert('Need 5 points');return;}
+ if(!sid||!DB[sid]){alert('Check Portfolio first');show('status');return;}
+ if(DB[sid].points<5){alert('Need 5 points — Sweep or collect Kakra');return;}
  DB[sid].points-=5; DB[sid].applied.push(skill); DB[sid].skill=skill;
  localStorage.setItem('aban_db_final',JSON.stringify(DB));
- document.getElementById('out-career').innerHTML=`<div class="ok">✅ Applied for ${skill}! Investor will contact. Training at OpenLabs.</div>`;
+ document.getElementById('out-career').innerHTML=`<div class="ok">✅ Applied for ${skill} — Investor will contact. Training soon.</div>`;
  updateAll();
 }
 function reportIssue(){
@@ -252,29 +281,19 @@ function reportIssue(){
  if(!issue){alert('Describe issue');return;}
  REPORTS.unshift({issue,loc,time:new Date().toLocaleString()});
  localStorage.setItem('aban_reports_final',JSON.stringify(REPORTS));
- document.getElementById('out-issue').innerHTML=`<div class="ok">✅ Reported!</div>`;
+ document.getElementById('out-issue').innerHTML=`<div class="ok">✅ Reported — 10 points earned</div>`;
  updateReports();
 }
 function updateReports(){
- document.getElementById('reports').innerHTML=REPORTS.slice(0,5).map(r=>`• ${r.issue} at ${r.loc} - ${r.time}`).join('<br>')||'No reports yet';
+ document.getElementById('reports').innerHTML=REPORTS.slice(0,5).map(r=>`• ${r.issue} — ${r.loc} — ${r.time}`).join('<br>')||'No reports yet';
 }
 function doStatus(){
  const id=document.getElementById('sid').value.trim();
  const m=DB[id];
- if(!m){document.getElementById('out-status').innerHTML=`<div class="ok" style="background:#FEF2F2">ID not found. Available: ${Object.keys(DB).join(', ')||'None'}</div>`;return;}
+ if(!m){document.getElementById('out-status').innerHTML=`<div class="ok">ID not found — Available: ${Object.keys(DB).join(', ')||'None'}</div>`;return;}
  let dividend = (m.kakra*0.1 + m.kg*3*0.4*0.05).toFixed(2);
- document.getElementById('out-status').innerHTML=`
-   <div class="ok" style="text-align:left">
-     <h3>📊 ${m.name} - ${m.type} ${m.skill?'| Skill: '+m.skill:''}</h3>
-     <p style="font-size:12px"><b>ID:</b> ${m.id} | <b>Town:</b> ${m.loc} | <b>Phone:</b> ${m.phone}</p>
-     <hr style="margin:6px 0">
-     <div class="grid2" style="font-size:12px">
-       <div>Swept: ${m.kg}kg<br>Earned: GHC ${m.earned.toFixed(2)}<br>Kakra: GHC ${m.kakra.toFixed(2)}</div>
-       <div>Points: ${m.points}<br>Dividend: GHC ${dividend}/mo<br>Applied: ${m.applied.join(', ')||'None'}</div>
-     </div>
-     <p style="font-size:10px;margin-top:6px">Contribution to Fund: GHC ${(m.kg*3*0.2 + m.kakra).toFixed(2)} → Boreholes, solar, jobs. Monthly earning!</p>
-   </div>`;
- document.getElementById('myWallet').innerHTML=`ID: ${m.id}<br>Name: ${m.name}<br>Type: ${m.type}<br>Kakra: GHC ${m.kakra.toFixed(2)}<br>Earned: GHC ${m.earned.toFixed(2)}<br>Points: ${m.points}<br>Dividend: GHC ${dividend}/mo`;
+ document.getElementById('out-status').innerHTML=`<div class="ok" style="text-align:left"><div class="mono">${m.id} • ${m.type} • ${m.loc}</div><h3 class="serif" style="font-size:20px;margin-top:4px">${m.name} — Portfolio</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;font-size:13px"><div>Swept: ${m.kg}kg<br>Earned: GHC ${m.earned.toFixed(2)}<br>Kakra: GHC ${m.kakra.toFixed(2)}</div><div>Points: ${m.points}<br>Dividend: GHC ${dividend}/mo<br>Skills: ${m.applied.join(', ')||'None'}</div></div><div class="mono" style="margin-top:10px;background:#fff;padding:8px;border-radius:8px">Contribution to Fund: GHC ${(m.kg*3*0.2 + m.kakra).toFixed(2)} → Boreholes, solar, jobs. Monthly dividend forever.</div></div>`;
+ document.getElementById('myWallet').innerHTML=`<span class="mono">${m.id}</span><br>${m.name} — ${m.type}<br>Kakra GHC ${m.kakra.toFixed(2)} • Points ${m.points} • Div GHC ${dividend}/mo`;
 }
 function updateAll(){
  document.getElementById('totalM').innerText=Object.keys(DB).length;
@@ -283,19 +302,20 @@ function updateAll(){
  document.getElementById('fundAmt').innerText=FUND.toFixed(2);
  document.getElementById('fundTotalSide').innerText='GHC '+FUND.toFixed(2);
  document.getElementById('totalF').innerText='GHC '+(FUND/1000).toFixed(1)+'k';
- document.getElementById('fundMeta').innerText=`From ${Object.keys(DB).length} people • Students 0.01 + Community 0.03 + Investors GHC ${INV_POOL.toFixed(0)}`;
- document.getElementById('sideMeta').innerText=`From ${Object.keys(DB).length} people • Last crawl 2:03 AM • Fund GHC ${FUND.toFixed(0)}`;
+ document.getElementById('fundMeta').innerText=`Pool AUM from ${Object.keys(DB).length} members • Students + Citizens + Investors`;
+ document.getElementById('sideMeta').innerText=`${Object.keys(DB).length} members • Last crawl 02:03 • Fund GHC ${FUND.toFixed(0)} • 40/40/20`;
  document.getElementById('invCount').innerText=Object.values(DB).filter(m=>m.type==='Business').length;
  document.getElementById('invAmt').innerText=INV_POOL.toFixed(0);
  let list=Object.values(DB).sort((a,b)=>b.kakra+b.kg-a.kakra-a.kg).slice(0,5);
- document.getElementById('board').innerHTML=list.length?list.map((m,i)=>`${i+1}. ${m.name} (${m.type}) - Kakra GHC${m.kakra.toFixed(2)} + ${m.kg}kg - Div GHC ${(m.kakra*0.1).toFixed(2)}/mo`).join('<br>'):'No members yet';
- let names=['Fix Borehole at Mamfe - Water sales','Street Lights Akropong Market - Market tolls','Solar for Adonten SHS - Sell power to ECG','Biogas Plant - Gas for chop bars'];
+ document.getElementById('board').innerHTML=list.length?list.map((m,i)=>`${i+1}. ${m.name} — ${m.type} — GHC${m.kakra.toFixed(2)} + ${m.kg}kg — Div GHC ${(m.kakra*0.1).toFixed(2)}/mo`).join('<br>'):'No members yet';
+ let names=['Fix Borehole — Water sales','Street Lights — Market tolls & safety','Solar for Schools — Sell power to ECG','Biogas Plant — Gas for food joints'];
  let needs=['GHC 4,000','GHC 6,000','GHC 8,000','GHC 4,500'];
  let icons=['🚰','💡','☀️','♻️'];
- document.getElementById('projects').innerHTML=PROJECTS.map((v,i)=>`<div class="project ${i==0?'win':''}"><div><b>${icons[i]} ${names[i]}</b><br><small>Needs ${needs[i]} - ${v} votes ${i==0?'WINNING ✅':''}</small></div><button class="btn ${i==0?'btn-green':'btn-dark'}" style="width:75px" onclick="vote(${i})">Vote</button></div>`).join('');
+ document.getElementById('projects').innerHTML=PROJECTS.map((v,i)=>`<div class="project"><div><div class="mono">PROJECT 0${i+1} — ${needs[i]}</div><b class="serif" style="font-size:16px">${icons[i]} ${names[i]}</b><div class="mono" style="margin-top:2px">${v} votes ${i==0?'• WINNING — Will pay dividends':''}</div></div><button class="btn btn-primary" style="width:90px" onclick="vote(${i})">Vote</button></div>`).join('');
  updateReports();
 }
 updateAll();
 </script>
 </body>
 </html>
+ 
