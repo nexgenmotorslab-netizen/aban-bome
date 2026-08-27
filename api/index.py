@@ -1,111 +1,57 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-import hashlib, uuid
-from datetime import datetime
-from fastapi.middleware.cors import CORSMiddleware
+from http.server import BaseHTTPRequestHandler
+import json
 
-app = FastAPI()
-app.add_middleware(
-    CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
-)
+members = {}
 
-members_db = {}
-sweep_pool = {"total_swept": 0, "members_swept": {}}
-skills_db = [
-    {"id": "SK01", "name": "Digital Bookkeeping", "provider": "GEA + Assembly"},
-    {"id": "SK02", "name": "Smart Farming", "provider": "KTU + MoFA"},
-    {"id": "SK03", "name": "Liquid Soap & Pastries", "provider": "NVTI + YEA"},
-]
+class handler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
 
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        if 'status' in self.path:
+            self.wfile.write(json.dumps({"members": list(members.values()), "total": len(members), "message": "ABAN BOME 3-in-1 Live"}).encode())
+        else:
+            self.wfile.write(json.dumps({"status": "ABAN BOME 3-in-1 API Live", "endpoints": ["/api?action=register", "/api?action=sweep", "/api?action=status"]}).encode())
 
-class MemberRegister(BaseModel):
-    full_name: str
-    phone: str
-    town: str
-    type: str
-
-
-class SweepRequest(BaseModel):
-    phone: str
-    momo_balance: float
-    airtime_balance: float
-    data_mb: float
-
-
-@app.get("/api/")
-def home():
-    return {
-        "status": "ABAN BOME 3-in-1 LIVE",
-        "members": len(members_db),
-        "pool": sweep_pool["total_swept"],
-    }
-
-
-@app.post("/api/membership/register")
-def register(data: MemberRegister):
-    mid = f"OKP-{datetime.now().year}-{str(uuid.uuid4())[:4].upper()}"
-    members_db[data.phone] = {
-        "member_id": mid,
-        "trust_score": 10,
-        "kakra_wallet": 0,
-        "certificates": 0,
-        **data.dict(),
-    }
-    return {
-        "ok": True,
-        "member_id": mid,
-        "msg": f"Akwaaba {data.full_name}! OKP ID: {mid} | Kakra Wallet Opened",
-    }
-
-
-@app.post("/api/skills/certify")
-def certify(phone: str, skill_id: str):
-    m = members_db.get(phone)
-    if not m:
-        return {"error": "Register first"}
-    m["certificates"] += 1
-    m["trust_score"] += 40
-    cert_hash = hashlib.sha256(f"{phone}{skill_id}".encode()).hexdigest()[:10]
-    return {
-        "cert_id": f"CERT-{cert_hash.upper()}",
-        "issued_by": "GEA/YEA/KTU + Assembly + Gov Ghana",
-        "qr": f"gov.gh/verify/{cert_hash}",
-        "new_score": m["trust_score"],
-        "loan_limit": m["trust_score"] * 30,
-    }
-
-
-@app.post("/api/kakra/sweep")
-def sweep(data: SweepRequest):
-    m = members_db.get(data.phone)
-    if not m:
-        return {"error": "Not member - register first"}
-    momo_k = round(data.momo_balance - int(data.momo_balance), 2)
-    air_k = round(data.airtime_balance - int(data.airtime_balance), 2)
-    data_k = round(data.data_mb * 0.01, 2)
-    total = round(momo_k + air_k + data_k, 2)
-    if total < 0.1:
-        total = 0
-    m["kakra_wallet"] = round(m.get("kakra_wallet", 0) + total, 2)
-    m["trust_score"] += 1
-    sweep_pool["total_swept"] = round(sweep_pool["total_swept"] + total, 2)
-    sweep_pool["members_swept"][data.phone] = round(
-        sweep_pool["members_swept"].get(data.phone, 0) + total, 2
-    )
-    return {
-        "swept_today": total,
-        "your_wallet": m["kakra_wallet"],
-        "score": m["trust_score"],
-        "pool_total": sweep_pool["total_swept"],
-        "msg": f"Wo kakra GH₵{total} akɔ Okuapeman Fund mu. 80% profit returns to you after 90 days.",
-    }
-
-
-@app.get("/api/dashboard")
-def dash():
-    return {
-        "total_members": len(members_db),
-        "total_swept": sweep_pool["total_swept"],
-        "members_swept": sweep_pool["members_swept"],
-        "all_members": list(members_db.values()),
-    }
+    def do_POST(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        length = int(self.headers.get('content-length', 0))
+        body = self.rfile.read(length).decode() if length else '{}'
+        try:
+            data = json.loads(body)
+        except:
+            data = {}
+        
+        # Register
+        if 'register' in self.path or data.get('name'):
+            import uuid
+            member_id = f"ABAN-{str(uuid.uuid4())[:8].upper()}"
+            member = {
+                "memberId": member_id,
+                "name": data.get('name','Guest'),
+                "phone": data.get('phone',''),
+                "location": data.get('location','Aburi'),
+                "type": data.get('memberType','Student'),
+                "kg": 0,
+                "earned": 0
+            }
+            members[member_id] = member
+            self.wfile.write(json.dumps({"success": True, "memberId": member_id, "message": f"Welcome {member['name']}! You are now ABAN BOME Member", "member": member}).encode())
+        # Sweep
+        elif 'sweep' in self.path or data.get('weight'):
+            weight = float(data.get('weight',1))
+            reward = weight * 5
+            self.wfile.write(json.dumps({"success": True, "message": f"Sweep recorded! Earned GHC{reward}", "reward": reward, "kg": weight, "points": int(weight*2)}).encode())
+        else:
+            self.wfile.write(json.dumps({"success": True, "message": "Received"}).encode())
